@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost/authExample", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/financeApp", { useNewUrlParser: true });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
