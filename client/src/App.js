@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage";
 import UserContext from "./context/UserContext";
+import Signup from "./components/Signup";
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
 				<UserContext.Provider value={{ setUser, user }}>
 					<ProtectedRoute exact path="/" component={HomePage} />
 					<Route exact path="/login" component={LoginPage} />
+					<Route exact path="/signup" component={Signup} />
 				</UserContext.Provider>
 			</div>
 		</Router>
