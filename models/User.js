@@ -17,11 +17,11 @@ const UserSchema = new mongoose.Schema({
   gender: String,
   age: Number,
   income: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "IncomeSchema"
   },
   expenses: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "ExpensesSchema"
   }
 });

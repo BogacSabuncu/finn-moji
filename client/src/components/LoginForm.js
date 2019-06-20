@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Auth from "../utils/Auth";
+import Button from 'react-bootstrap/Button';
 
 class LoginForm extends Component {
 	static contextType = UserContext;
@@ -35,14 +36,16 @@ class LoginForm extends Component {
 					name="username"
 					value={this.state.username}
 					onChange={this.changeHandler}
+					
 				/>
+							
 				<input
 					type="password"
 					name="password" 
 					value={this.state.password}
 					onChange={this.changeHandler}
 				/>
-				<button type="submit">Submit</button>
+				<Button variant="success">Login</Button>
 			</form>
 		);
 	}
