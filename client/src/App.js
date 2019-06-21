@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./components/LoginPage";
 import HomePage from "./components/HomePage";
 import UserContext from "./context/UserContext";
+import SingupForm from "./components/SingupForm";
 
 class App extends Component {
 
@@ -23,12 +24,13 @@ class App extends Component {
 			<div>
 				<header>
 					<nav>
-						<Link to="/">Home</Link> | <Link to="/login">Login</Link>
+						<Link to="/">Home</Link> | <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link>
 					</nav>
 				</header>
 				<UserContext.Provider value={{ setUser, user }}>
 					<ProtectedRoute exact path="/" component={HomePage} />
 					<Route exact path="/login" component={LoginPage} />
+					<Route exact path="/signup" component={SingupForm} />
 				</UserContext.Provider>
 			</div>
 		</Router>
