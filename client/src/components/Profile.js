@@ -1,7 +1,7 @@
 import React from "react";
 import UserContext from "../context/UserContext";
 
-const HomePage = (props) => (
+const Profile = (props) => (
 	<UserContext.Consumer>
 		{context => {
 			return <div>
@@ -12,4 +12,4 @@ const HomePage = (props) => (
 	</UserContext.Consumer>
 );
 
-export default HomePage;
+export default Profile;
