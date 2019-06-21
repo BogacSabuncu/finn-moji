@@ -25,36 +25,37 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">
+          <Navbar bg='dark' variant='dark'>
+            <Navbar.Brand href='#home'>
               <img
-                alt=""
-                src="/logo.svg"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
+                alt=''
+                src='/logo.svg'
+                width='30'
+                height='30'
+                className='d-inline-block align-top'
               />
               {" fingachi"}
             </Navbar.Brand>
-            <Nav className="justify-content-end" activeKey="/home">
+            <Nav className='justify-content-end' activeKey='/home'>
               <Nav.Item>
-                <Nav.Link href="/landing">Home</Nav.Link>
+                <Nav.Link href='/landing'>Home</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/statistics">Stats</Nav.Link>
+                <Nav.Link href='/statistics'>Stats</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/getstarted">Get Started</Nav.Link>
+                <Nav.Link href='/getstarted'>Get Started</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar>
           <UserContext.Provider value={{ setUser, user }}>
-            <ProtectedRoute exact path="/" component={Profile} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/signup" component={SingupForm} />
-            <Route exact path="/landing" component={LandingPage} />
-			<Route exact path="/statistics" component={Statistics} />
-            <Route exact path="/getstarted" component={GetStarted} />
+            <ProtectedRoute exact path='/' component={Profile} />
+            <Route exact path='/profile' component={Profile} />
+            <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/signup' component={SingupForm} />
+            <Route exact path='/landing' component={LandingPage} />
+            <Route exact path='/statistics' component={Statistics} />
+            <Route exact path='/getstarted' component={GetStarted} />
           </UserContext.Provider>
         </div>
       </Router>
