@@ -1,8 +1,21 @@
 import axios from "axios";
 
 export default {
-  register: function(query) {
-    console.log("query", query);
-    return axios.post("/api/signup", query);
+  register: function(userInfo) {
+    console.log("userInfo", userInfo);
+    return axios.post("/api/signup", userInfo);
+  },
+  logIn: function(userCred) {
+    console.log("userCred", userCred);
+    return axios.post("/api/authenticate", userCred).then(function(result) {
+      console.log("results!!!", result);
+    });
+  },
+  addExpense: function(data) {
+    console.log("userInfo", data);
+    return axios.post(
+      "/api/add-expense/" + localStorage.getItem("userId"),
+      data
+    );
   }
 };
