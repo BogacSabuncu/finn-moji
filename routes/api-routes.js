@@ -38,8 +38,6 @@ module.exports = function (app) {
 			res.json(dbUser);
 		}).catch(function (err) {
 			res.status(500).json({ error: err.message });
-
-
 		});
 	});
 }

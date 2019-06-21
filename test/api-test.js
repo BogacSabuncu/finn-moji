@@ -11,10 +11,10 @@ let request;
 let usrArr = [{ username: "User1", password: "password1" }, { username: "User2", password: "password2" }]
 
 describe("GET /api/users", function () {
-    beforeEach(function () {
+    beforeEach(function (done) {
         request = chai.request(server);
-        return db.User.remove({}, function (err) {
-            console.log("collection removed");
+        db.User.deleteMany({}).then(function () {
+            done();
         });
     });
 
@@ -45,6 +45,7 @@ describe("GET /api/users", function () {
             });
         }).catch(err => {
             console.log(err);
+            done();
         });
     });
 });
