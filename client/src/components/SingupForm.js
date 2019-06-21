@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Auth from "../utils/Auth";
-import { Button, Nav, Navbar, Form, Container } from "react-bootstrap";
-import "../stylesheets/SignupForm.css"
-
+import API from "../utils/API";
 
 class SignupForm extends Component {
   static contextType = UserContext;
@@ -12,7 +10,6 @@ class SignupForm extends Component {
   state = {
     username: "",
     password: "",
-    email: "",
     gender: "",
     age: "",
     income: "",
@@ -26,82 +23,72 @@ class SignupForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    const { username, password } = this.state;
-    if (username && password) {
-      Auth.logIn(username, password, response => {
-        this.context.setUser(response);
-        this.props.history.push("/");
-      });
-    }
+    const { username, password, gender, age } = this.state;
+    API.register({
+      username,
+      password,
+      gender,
+      age
+    });
   };
 
   render() {
     return (
-      <>
-		<Container>
-  			<Navbar sticky="top" expand="lg" variant="light" bg="light">
-   				<Navbar.Brand href="#">$$$</Navbar.Brand>
-					<Nav.Link className="justify-content-end">
-				  		<Link to="/">Home</Link> | <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link>
-  					</Nav.Link>
-			  </Navbar>
-		</Container>
+      <form onSubmit={this.submitHandler}>
+        <input
+          type='text'
+          name='username'
+          value={this.state.username}
+          onChange={this.changeHandler}
+          placeholder='Username'
+        />
+        <input
+          type='password'
+          name='password'
+          value={this.state.password}
+          onChange={this.changeHandler}
+          placeholder='Password'
+        />
+        <input
+          type='email'
+          name='email'
+          value={this.state.email}
+          onChange={this.changeHandler}
+          placeholder='Email'
+        />
+        <input
+          type='text'
+          name='gender'
+          value={this.state.gender}
+          onChange={this.changeHandler}
+          placeholder='Gender'
+        />
+        <input
+          type='text'
+          name='age'
+          value={this.state.age}
+          onChange={this.changeHandler}
+          placeholder='Age'
+        />
+        <input
+          type='text'
+          name='income'
+          value={this.state.income}
+          onChange={this.changeHandler}
+          placeholder='Income'
+        />
+        <input
+          type='expenses'
+          name='expenses'
+          value={this.state.expenses}
+          onChange={this.changeHandler}
+          placeholder='Expenses'
+        />
 
-		<Container>
-        <Form onSubmit={this.submitHandler}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.username}
-            onChange={this.changeHandler}
-            placeholder="Username"
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.changeHandler}
-            placeholder="Password"
-          />
-          <input
-            type="email"
-            name="email"
-            value={this.state.email}
-            onChange={this.changeHandler}
-            placeholder="Email"
-          />
-          <input
-            type="text"
-            name="gender"
-            value={this.state.gender}
-            onChange={this.changeHandler}
-            placeholder="Gender"
-          />
-          <input
-            type="text"
-            name="age"
-            value={this.state.age}
-            onChange={this.changeHandler}
-            placeholder="Age"
-          />
-          <input
-            type="text"
-            name="income"
-            value={this.state.income}
-            onChange={this.changeHandler}
-            placeholder="Income"
-          />
-          <input
-            type="expenses"
-            name="expenses"
-            value={this.state.expenses}
-            onChange={this.changeHandler}
-            placeholder="Expenses"
-          />
-          <Button type="submit">Create</Button>
-        </Form>
-		</Container>
-      </>
+        <button type='submit' onClick={this.submitHandler}>
+          Create
+        </button>
+      </form>
     );
   }
 }
