@@ -9,7 +9,11 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost/financeApp", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/financeApp", {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false
+});
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -29,3 +33,5 @@ if (process.env.NODE_ENV === "production") {
 app.listen(PORT, function() {
 	console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+module.exports = app;
