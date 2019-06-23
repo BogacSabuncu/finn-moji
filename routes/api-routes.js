@@ -53,7 +53,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/api/add-expense/:id", function(req, res) {
+  app.post("/api/add-expense/:id", authWare, function(req, res) {
     Expenses.create(req.body)
       .then(function(result) {
         return User.findOneAndUpdate(
