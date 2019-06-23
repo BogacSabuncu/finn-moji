@@ -17,5 +17,19 @@ export default {
       "/api/add-expense/" + localStorage.getItem("userId"),
       data
     );
+  },
+  addIncome: function(data) {
+    console.log("userInfo", data);
+    return axios.post(
+      "/api/add-income/" + localStorage.getItem("userId"),
+      data
+    );
+  },
+
+  getIncome: function() {
+    
+    return axios.get(
+      "/api/getIncome/" + localStorage.getItem("userId")
+    );
   }
 };

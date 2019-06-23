@@ -8,6 +8,8 @@ class Profile extends Component {
   static contextType = UserContext;
 
   state = {
+    nameIncome: "",
+    valueIncome: "",
     name: "",
     value: "",
     category: ""
@@ -20,17 +22,42 @@ class Profile extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    const { name, value, category } = this.state;
+    const {nameIncome, valueIncome, name, value, category} = this.state;
+    if(nameIncome) {
+      API.addIncome({
+        nameIncome,
+        valueIncome
+      });
+      
+    }
+
+    if(name) {
     API.addExpense({
       name,
       value,
       category
-    });
+    }); }
+
+    this.props.history.push("/statistics");
   };
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <form>
+        <input
+          type='text'
+          name='nameIncome'
+          value={this.state.nameIncome}
+          onChange={this.changeHandler}
+          placeholder='Ex. income'
+        />
+        <input
+          type='text'
+          name='valueIncome'
+          value={this.state.valueIncome}
+          onChange={this.changeHandler}
+          placeholder='Income. Value'
+        />
         <input
           type='text'
           name='name'
@@ -61,6 +88,10 @@ class Profile extends Component {
           Add Expense
         </button>
       </form>
+
+
+
+
     );
   }
 }
