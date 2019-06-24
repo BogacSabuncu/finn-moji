@@ -3,36 +3,37 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
 import "../stylesheets/Footer.css"
 const FooterPage = () => {
   return (
+    <div id="footerContainer">
     <MDBFooter id="footer" color="elegant-color" className="font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
           <MDBCol>
-            <h5 className="title">Fingachi - Finance, simplified. &#128176;</h5>
+            <h5 id="FooterTitle" className="title">Fingachi - Finance, simplified. &#128176;</h5>
             <p>
-              Securing the bag is hard enough, we're here to make sure you hold on to it.
+              Securing the bag is hard enough. We're here to make sure you hold on to it.
               Through our unique approach to personal finance, we aim to make it a much more approachable topic for individuals that are unfamiliar.
             </p>
           </MDBCol>
           <MDBCol></MDBCol>
           <MDBCol>
-            <h5 className="title">Resources</h5>
+            <h5 className="title">Resources &#128170;</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!">Robinhood - Stocks and options with no fees <i class="fas fa-external-link-alt"></i></a>
+                <a id="robinhood" href="https://robinhood.com/" rel="noopener noreferrer" target="_blank">1. Robinhood - Stocks and options with no fees </a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">The Simple Dollar - Courses relating to personal finance</a>
+                <a id="simpledollar" href="https://www.thesimpledollar.com/blog-overview/" rel="noopener noreferrer" target="_blank">2. Simple Dollar - Free courses relating to finance </a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 3</a>
+                <a href="https://www.stackingbenjamins.com/about/" rel="noopener noreferrer" target="_blank">3. Stacking Benjamins - Personal finance podcast</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+                <a href="https://www.learnvest.com/knowledge-center/" rel="noopener noreferrer" target="_blank">4. Learnvest - Investment 101  </a>
               </li>
             </ul>
           </MDBCol>
           <MDBCol>
-            <h5 className="title">Social</h5>
+            <h5 className="title">Social &#128526;</h5>
             <ul>
               <li className="list-unstyled">
                 <a href="#!"><i class="fab fa-instagram"></i> Instagram </a>
@@ -76,6 +77,7 @@ const FooterPage = () => {
         </MDBContainer>
       </div>
     </MDBFooter>
+    </div>
   
   );
 }
