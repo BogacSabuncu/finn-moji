@@ -95,4 +95,17 @@ module.exports = function (app) {
         res.status(500).json({ error: err.message });
       });
     });
+
+    app.get("/api/getExpenses/:id", function (req, res) {
+      User.findOne({ _id: req.params.id })
+      .populate("expenses")
+        .then(function (result) {
+          console.log("income", result);
+          res.json(result);
+        })
+  
+        .catch(function (err) {
+          res.status(500).json({ error: err.message });
+        });
+      });
   };

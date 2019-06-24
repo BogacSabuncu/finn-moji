@@ -31,5 +31,12 @@ export default {
     return axios.get(
       "/api/getIncome/" + localStorage.getItem("userId")
     );
+  },
+
+  getExpenses: function() {
+    
+    return axios.get(
+      "/api/getExpenses/" + localStorage.getItem("userId")
+    );
   }
 };

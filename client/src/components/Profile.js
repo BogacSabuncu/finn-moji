@@ -80,8 +80,9 @@ class Profile extends Component {
         >
           <option value='Housing'>Housing</option>
           <option value='Healthcare'>Healthcare</option>
-          <option value='food'>food</option>
-          <option value='insurance'>insurance</option>
+          <option value='food'>Food</option>
+          <option value='Insurance'>Insurance</option>
+          <option value='Savings'>Savings</option>
         </select>
 
         <button type='submit' onClick={this.submitHandler}>
