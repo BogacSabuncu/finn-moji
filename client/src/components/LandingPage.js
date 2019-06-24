@@ -21,7 +21,7 @@ class LandingPage extends Component {
             />
           </Col>
           <Col xs={8}>
-            <h5 id="quote">"Securing the bag is hard enough, Fingachi is here to make sure you hold on to it."</h5>
+            <h5 id="quote">"Securing the bag is hard enough. Fingachi is here to make sure you hold on to it."</h5>
           </Col>
         </Row>
       

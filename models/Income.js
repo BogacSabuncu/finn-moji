@@ -2,18 +2,15 @@ const mongoose = require("mongoose");
 
 // define the User model schema
 const IncomeSchema = new mongoose.Schema({
-  name: {
+  nameIncome: {
     type: String,
     required: true
   },
-  value: {
+  valueIncome: {
     type: Number,
     required: true
-  },
-  frequency: {
-    type: String,
-    required: true
   }
+
 });
 
 module.exports = mongoose.model("UserIncome", IncomeSchema);
