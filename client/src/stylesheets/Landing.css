@@ -1,0 +1,53 @@
+#container {
+  border: 1px solid black;
+  margin: 30px auto 30px auto;
+}
+
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@-webkit-keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#fingachi-img {
+  padding-top: 20px;
+}
+
+#quote {
+  font: bold 100% Consolas, Monaco, monospace;
+  border-right: .1em solid black;
+  width: 16.5em;
+  width: 83ch;
+  margin: 2em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  position: static;
+  float: left;
+  word-wrap: break-word;
+  -webkit-animation: typing 7s steps(83, end),
+    blink-caret .5s step-end infinite alternate;
+}
+
+#fang {
+  color: grey;
+}
+#oscar {
+  color: rgb(202, 18, 202);
+}
+
+#enzo {
+  color: red;
+}
+
+#natalia {
+  color: pink;
+}
+
+#bogac {
+  color: seagreen;
+}
