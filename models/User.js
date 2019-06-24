@@ -16,14 +16,14 @@ const UserSchema = new mongoose.Schema({
   },
   gender: String,
   age: Number,
-  income: {
+  income: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "IncomeSchema"
-  },
-  expenses: {
+    ref: "UserIncome"
+  }],
+  expenses: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "UserExpenses"
-  }
+  }]
 });
 
 UserSchema.methods.comparePassword = function(inputPass) {
