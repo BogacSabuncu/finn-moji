@@ -1,16 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "../stylesheets/Landing.css";
 import { MDBBtn } from "mdbreact";
-
 
 // import UserContext from "../context/UserContext";
 
 class LandingPage extends Component {
   render() {
     return (
-    
       <Container id="container">
         <Row>
           <Col xs={4}>
@@ -21,14 +19,19 @@ class LandingPage extends Component {
             />
           </Col>
           <Col xs={8}>
-            <h5 id="quote">"Securing the bag is hard enough. Fingachi is here to make sure you hold on to it."</h5>
+            <h5 id="quote">
+              "Securing the bag is hard enough. Fingachi is here to make sure
+              you hold on to it."
+            </h5>
           </Col>
         </Row>
-      
 
         <Row>
           <h3>Financial accountability made approachable</h3>
-          <p>With Fingachi, taking responsibility for your personal finances has never been more fun or hassle-free. </p>
+          <p>
+            With Fingachi, taking responsibility for your personal finances has
+            never been more fun or hassle-free.{" "}
+          </p>
         </Row>
         <Row>
           <h3>Info #2</h3>
@@ -37,20 +40,21 @@ class LandingPage extends Component {
           <h3>Info #3</h3>
         </Row>
 
-
-
         <Row className="justify-content-md-center">
-          <Col xs lg="2">
-            <Fragment>
-            <MDBBtn href="/getstarted" size="lg" gradient="purple">Start</MDBBtn>
-            </Fragment>
+          <Col>
+            <div className="text-center">
+              <Fragment>
+                <MDBBtn href="/login" size="lg" gradient="purple">
+                  Log In
+                </MDBBtn>
+                <MDBBtn href="/signup" size="lg" gradient="purple">
+                  Sign Up
+                </MDBBtn>
+              </Fragment>
+            </div>
           </Col>
         </Row>
-        
       </Container>
-      
-
-      
     );
   }
 }
