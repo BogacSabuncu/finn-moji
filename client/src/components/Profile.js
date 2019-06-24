@@ -3,6 +3,9 @@ import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 // import Auth from "../utils/Auth";
 import API from "../utils/API";
+import Charts from "./Charts";
+import AddExpense from "./AddExpense";
+import AddIncome from "./AddIncome";
 
 class Profile extends Component {
   static contextType = UserContext;
@@ -22,77 +25,32 @@ class Profile extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    const {nameIncome, valueIncome, name, value, category} = this.state;
-    if(nameIncome) {
+    const { nameIncome, valueIncome, name, value, category } = this.state;
+    if (nameIncome) {
       API.addIncome({
         nameIncome,
         valueIncome
       });
-      
     }
 
-    if(name) {
-    API.addExpense({
-      name,
-      value,
-      category
-    }); }
+    if (name) {
+      API.addExpense({
+        name,
+        value,
+        category
+      });
+    }
 
     this.props.history.push("/statistics");
   };
 
   render() {
     return (
-      <form>
-        <input
-          type='text'
-          name='nameIncome'
-          value={this.state.nameIncome}
-          onChange={this.changeHandler}
-          placeholder='Ex. income name'
-        />
-        <input
-          type='text'
-          name='valueIncome'
-          value={this.state.valueIncome}
-          onChange={this.changeHandler}
-          placeholder='Income. Value'
-        />
-        <input
-          type='text'
-          name='name'
-          value={this.state.name}
-          onChange={this.changeHandler}
-          placeholder='Ex. expense'
-        />
-        <input
-          type='text'
-          name='value'
-          value={this.state.value}
-          onChange={this.changeHandler}
-          placeholder='Ex. Value'
-        />
-        <select
-          name='category'
-          onChange={this.changeHandler}
-          placeholder='Ex. Category'
-          value={this.state.category}
-        >
-          <option value='Housing'>Housing</option>
-          <option value='Healthcare'>Healthcare</option>
-          <option value='food'>Food</option>
-          <option value='Insurance'>Insurance</option>
-          <option value='Savings'>Savings</option>
-        </select>
-
-        <button type='submit' onClick={this.submitHandler}>
-          Add Expense
-        </button>
-      </form>
-
-
-
-
+      <div>
+        <Charts />
+        <AddIncome />
+        <AddExpense />
+      </div>
     );
   }
 }
