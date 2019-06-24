@@ -49,7 +49,7 @@ class Profile extends Component {
           name='nameIncome'
           value={this.state.nameIncome}
           onChange={this.changeHandler}
-          placeholder='Ex. income'
+          placeholder='Ex. income name'
         />
         <input
           type='text'
