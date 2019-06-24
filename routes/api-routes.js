@@ -4,20 +4,20 @@ const Income = require("../models/Income");
 const jwt = require("jsonwebtoken");
 const authWare = require("../middleware/authware");
 
-module.exports = function (app) {
-  app.post("/api/signup", function (req, res) {
+module.exports = function(app) {
+  app.post("/api/signup", function(req, res) {
     User.create(req.body)
-      .then(function (result) {
+      .then(function(result) {
         res.json({ message: "user created" });
       })
-      .catch(function (err) {
+      .catch(function(err) {
         res.status(500).json({ error: err.message });
       });
   });
 
-  app.post("/api/authenticate", function (req, res) {
+  app.post("/api/authenticate", function(req, res) {
     const { username, password } = req.body;
-    User.findOne({ username: username }).then(function (dbUser) {
+    User.findOne({ username: username }).then(function(dbUser) {
       if (!dbUser)
         return res
           .status(401)
@@ -41,70 +41,75 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/users", function (req, res) {
+  app.get("/api/users", authWare, function(req, res) {
     User.find()
       .populate("expenses")
       .populate("income")
+<<<<<<< HEAD
       .then(function (dbUser) {
+=======
+      .then(function(dbUser) {
+        console.log("Get all Users", dbUser);
+>>>>>>> 5466d4bffdd2f5a4098689548e47f25b2b0b2959
         res.json(dbUser);
       })
 
-      .catch(function (err) {
+      .catch(function(err) {
         res.status(500).json({ error: err.message });
       });
   });
 
-  app.post("/api/add-expense/:id", function (req, res) {
+  app.post("/api/add-expense/:id", authWare, function(req, res) {
     Expenses.create(req.body)
-      .then(function (result) {
+      .then(function(result) {
         return User.findOneAndUpdate(
           { _id: req.params.id },
           { $push: { expenses: result._id } },
           { new: true }
         );
       })
-      .catch(function (err) {
+      .catch(function(err) {
         res.status(500).json({ error: err.message });
       });
   });
 
-  app.post("/api/add-income/:id", function (req, res) {
+  app.post("/api/add-income/:id", authWare, function(req, res) {
     Income.create(req.body)
-      .then(function (result) {
+      .then(function(result) {
         return User.findOneAndUpdate(
           { _id: req.params.id },
           { $push: { income: result._id } },
           { new: true }
         );
       })
-      .catch(function (err) {
+      .catch(function(err) {
         res.status(500).json({ error: err.message });
       });
   });
 
-  app.get("/api/getIncome/:id", function (req, res) {
+  app.get("/api/getIncome/:id", authWare, function(req, res) {
     User.findOne({ _id: req.params.id })
-    .populate("income")
-      .then(function (result) {
+      .populate("income")
+      .then(function(result) {
         console.log("income", result);
         res.json(result);
       })
 
-      .catch(function (err) {
+      .catch(function(err) {
         res.status(500).json({ error: err.message });
       });
-    });
+  });
 
-    app.get("/api/getExpenses/:id", function (req, res) {
-      User.findOne({ _id: req.params.id })
+  app.get("/api/getExpenses/:id", authWare, function(req, res) {
+    User.findOne({ _id: req.params.id })
       .populate("expenses")
-        .then(function (result) {
-          console.log("income", result);
-          res.json(result);
-        })
-  
-        .catch(function (err) {
-          res.status(500).json({ error: err.message });
-        });
+      .then(function(result) {
+        console.log("income", result);
+        res.json(result);
+      })
+
+      .catch(function(err) {
+        res.status(500).json({ error: err.message });
       });
-  };
+  });
+};

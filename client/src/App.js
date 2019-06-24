@@ -50,7 +50,6 @@ class App extends Component {
             </Nav>
           </Navbar>
           <UserContext.Provider value={{ setUser, user }}>
-            <ProtectedRoute exact path='/profile' component={Profile} />
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={SingupForm} />
@@ -58,10 +57,8 @@ class App extends Component {
             <Route exact path='/statistics' component={Statistics} />
             <Route exact path='/getstarted' component={GetStarted} />
           </UserContext.Provider>
-          <FooterPage/>
-
+          <FooterPage />
         </div>
-        
       </Router>
     );
   }
