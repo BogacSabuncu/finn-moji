@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Auth from "../utils/Auth";
 import Button from "react-bootstrap/Button";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
 class LoginForm extends Component {
   static contextType = UserContext;
@@ -29,26 +30,41 @@ class LoginForm extends Component {
     }
   };
 
+
   render() {
     return (
+      <MDBContainer className="container">
+      <MDBCol md="6">
       <form onSubmit={this.submitHandler}>
-        <input
-          type='text'
+        <MDBInput
+          label='Type your email'
+          icon='envelope'
+          group
+          type='email'
           name='username'
+          error="Wrong!"
+          success="Welcome Back!"
           value={this.state.username}
           onChange={this.changeHandler}
+          validate
         />
 
-        <input
+        <MDBInput
+          label="Type your Password"
+          icon='lock'
           type='password'
           name='password'
           value={this.state.password}
           onChange={this.changeHandler}
         />
-        <Button variant='success' onClick={this.submitHandler}>
+        <div className="text-center">
+        <MDBBtn variant='success' onClick={this.submitHandler}>
           Login
-        </Button>
+        </MDBBtn>
+        </div>
       </form>
+      </MDBCol>
+      </MDBContainer>
     );
   }
 }

@@ -3,7 +3,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
 import "../stylesheets/Footer.css"
 const FooterPage = () => {
   return (
-    <div id="footerContainer">
+    <div id="footerContainer" className="footer">
     <MDBFooter id="footer" color="elegant-color" className="font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
@@ -25,10 +25,10 @@ const FooterPage = () => {
                 <a id="simpledollar" href="https://www.thesimpledollar.com/blog-overview/" rel="noopener noreferrer" target="_blank">2. Simple Dollar - Free courses relating to finance </a>
               </li>
               <li className="list-unstyled">
-                <a href="https://www.stackingbenjamins.com/about/" rel="noopener noreferrer" target="_blank">3. Stacking Benjamins - Personal finance podcast</a>
+                <a id="stackingbenjamins" href="https://www.stackingbenjamins.com/about/" rel="noopener noreferrer" target="_blank">3. Stacking Benjamins - Personal finance podcast</a>
               </li>
               <li className="list-unstyled">
-                <a href="https://www.learnvest.com/knowledge-center/" rel="noopener noreferrer" target="_blank">4. Learnvest - Investment 101  </a>
+                <a id="learnvest" href="https://www.learnvest.com/knowledge-center/" rel="noopener noreferrer" target="_blank">4. Learnvest - Investment 101  </a>
               </li>
             </ul>
           </MDBCol>
@@ -36,16 +36,16 @@ const FooterPage = () => {
             <h5 className="title">Social &#128526;</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!"><i class="fab fa-instagram"></i> Instagram </a>
+                <a href="#!"><i className="fab fa-instagram"></i> Instagram </a>
               </li>
               <li className="list-unstyled">
-                <a href="#!"><i class="fab fa-facebook"></i> Facebook </a>
+                <a href="#!"><i className="fab fa-facebook"></i> Facebook </a>
               </li>
               <li className="list-unstyled">
-                <a href="#!"><i class="fab fa-twitter"></i> Twitter </a>
+                <a href="#!"><i className="fab fa-twitter"></i> Twitter </a>
               </li>
               <li className="list-unstyled">
-                <a href="#!"><i class="fab fa-snapchat-ghost"></i> Snapchat </a>
+                <a href="#!"><i className="fab fa-snapchat-ghost"></i> Snapchat </a>
               </li>
             </ul>
           </MDBCol>
