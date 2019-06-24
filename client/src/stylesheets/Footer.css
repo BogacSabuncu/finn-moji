@@ -10,19 +10,31 @@
 
 } */
 
-#footerContainer {
+/* #footerContainer {
 display: flex;
 flex-direction: column;
 min-height: 70vh;
 min-height: -webkit-calc(100% - 186px);
 min-height: -moz-calc(100% - 186px);
 min-height: calc(100% - 186px);
-}
+} */
 
 #FooterTitle {
-    color: green
+    color: green;
 }
 
 #robinhood {
-    color: green
+    color: green;
+}
+
+#learnvest {
+    color: burlywood;
+}
+
+#simpledollar {
+    color: orange;
+}
+
+#stackingbenjamins {
+    color: orchid;
 }
