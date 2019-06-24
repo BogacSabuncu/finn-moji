@@ -46,7 +46,6 @@ module.exports = function (app) {
       .populate("expenses")
       .populate("income")
       .then(function (dbUser) {
-        console.log("Get all Users", dbUser);
         res.json(dbUser);
       })
 
