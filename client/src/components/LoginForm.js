@@ -34,13 +34,15 @@ class LoginForm extends Component {
   render() {
     return (
       <MDBContainer className="container">
-      <MDBCol md="6">
+      <MDBRow>
+      <MDBCol></MDBCol>
+      <MDBCol md="4">
       <form onSubmit={this.submitHandler}>
         <MDBInput
-          label='Type your email'
-          icon='envelope'
+          label='Username'
+          icon='user'
           group
-          type='email'
+          type='text'
           name='username'
           error="Wrong!"
           success="Welcome Back!"
@@ -50,7 +52,7 @@ class LoginForm extends Component {
         />
 
         <MDBInput
-          label="Type your Password"
+          label="Password"
           icon='lock'
           type='password'
           name='password'
@@ -64,6 +66,8 @@ class LoginForm extends Component {
         </div>
       </form>
       </MDBCol>
+      <MDBCol></MDBCol>
+      </MDBRow>
       </MDBContainer>
     );
   }
