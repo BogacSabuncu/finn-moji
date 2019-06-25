@@ -29,31 +29,33 @@ class LandingPage extends Component {
           </Col>
         </Row>
         <hr />
-        <Row>
-          <h3>Financial accountability made approachable</h3>
-          <p>
-            With Finmoji, taking responsibility for your personal finances has
-            never been more fun or hassle-free. Finmoji can assist you in
-            allocating your income to a budget within your means.
-          </p>
-        </Row>
-        <Row>
-          <h3>Break down budgeting</h3>
-          <p>
-            Backed by market research, Finmoji provides the user with a
-            recommendation of what percentage of their income should be used for
-            fixed costs (rent, food, bills, etc.) and disposable expenses
-            (dining out, entertainment, etc.).
-          </p>
-        </Row>
-        <Row>
-          <h3>Intuitive features, effortless results</h3>
-          <p>
-            We bring together everything from balances and bills to your credit
-            score and more. It’s your financial life, in one place that’s easy
-            to understand.
-          </p>
-        </Row>
+        <div id="app-info">
+          <Row>
+            <h3 class="bullet">Financial accountability made approachable</h3>
+            <p>
+              With Finmoji, taking responsibility for your personal finances has
+              never been more fun or hassle-free. Finmoji can assist you in
+              allocating your income to a budget within your means.
+            </p>
+          </Row>
+          <Row>
+            <h3 class="bullet">Break down budgeting</h3>
+            <p>
+              Backed by market research, Finmoji provides the user with a
+              recommendation of what percentage of their income should be used
+              for fixed costs (rent, food, bills, etc.) and disposable expenses
+              (dining out, entertainment, etc.).
+            </p>
+          </Row>
+          <Row>
+            <h3 class="bullet">Intuitive features, effortless results</h3>
+            <p>
+              We bring together everything from balances and bills to your
+              credit score and more. It’s your financial life, in one place
+              that’s easy to understand.
+            </p>
+          </Row>
+        </div>
 
         <Row className="justify-content-md-center">
           <Col>
