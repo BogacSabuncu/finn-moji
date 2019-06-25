@@ -5,12 +5,14 @@ import {
   MDBModal,
   MDBModalBody,
   MDBModalHeader,
-  MDBModalFooter
+  MDBModalFooter,
+  MDBInput
 } from "mdbreact";
 import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 // import Auth from "../utils/Auth";
 import API from "../utils/API";
+import "../stylesheets/AddIncome.css"
 
 class AddIncome extends Component {
   static contextType = UserContext;
@@ -54,18 +56,20 @@ class AddIncome extends Component {
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
-            MDBModal title
+            Add Income  &#128536;
           </MDBModalHeader>
           <MDBModalBody>
             <form>
-              <input
+              <MDBInput
+                label="Income Type"
                 type='text'
                 name='nameIncome'
                 value={this.state.nameIncome}
                 onChange={this.changeHandler}
                 placeholder='Ex. income name'
               />
-              <input
+              <MDBInput
+                label='Income Value'
                 type='text'
                 name='valueIncome'
                 value={this.state.valueIncome}
