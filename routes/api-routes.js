@@ -45,12 +45,8 @@ module.exports = function(app) {
     User.find()
       .populate("expenses")
       .populate("income")
-<<<<<<< HEAD
-      .then(function (dbUser) {
-=======
       .then(function(dbUser) {
         console.log("Get all Users", dbUser);
->>>>>>> 5466d4bffdd2f5a4098689548e47f25b2b0b2959
         res.json(dbUser);
       })
 
