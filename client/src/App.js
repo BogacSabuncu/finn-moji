@@ -10,6 +10,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import Statistics from "./components/Statistics";
 import GetStarted from "./components/GetStarted";
 import FooterPage from "./components/Footer";
+import Logs from "./components/Logs";
 import "./stylesheets/App.css";
 
 class App extends Component {
@@ -52,7 +53,8 @@ class App extends Component {
               </Nav>
             </Navbar>
             <UserContext.Provider value={{ setUser, user }}>
-              <ProtectedRoute exact path="/profile" component={Profile} />
+
+              <Route exact path="/logs" component={Logs} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/signup" component={SingupForm} />

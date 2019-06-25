@@ -40,5 +40,19 @@ export default {
     return axios.get(
       "/api/getExpenses/" + localStorage.getItem("userId")
     );
+  },
+  deleteIncome: function(id) {
+    
+    return axios.delete(
+      "/api/deleteIncome/" + id
+    );
+  },
+
+  updateIncome: function(id, value) {
+    
+    return axios.put(
+      "/api/updateIncome/" + id, {incomeValue:value}
+    );
   }
+
 };
