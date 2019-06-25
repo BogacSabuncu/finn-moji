@@ -1,6 +1,6 @@
-# fingachi
+# finmoji
 
-With Fingachi, taking responsibility for your personal finances has never been more fun or hassle-free. Fingachi can assist you in allocating your income to a budget within your means.
+With Finmoji, taking responsibility for your personal finances has never been more fun or hassle-free. Finmoji can assist you in allocating your income to a budget within your means.
 
 ### Overview
 
@@ -8,7 +8,7 @@ With Fingachi, taking responsibility for your personal finances has never been m
 
 Money is oftentimes an uncomfortable subject. Our goal is to make financial responsibility simple, approachable, and interactive.
 
-Backed by market research, Fingachi provides the user with a recommendation of what percentage of their income should be used for fixed costs (rent, food, bills, etc.) and disposable expenses (dining out, entertainment, etc.). 
+Backed by market research, Finmoji provides the user with a recommendation of what percentage of their income should be used for fixed costs (rent, food, bills, etc.) and disposable expenses (dining out, entertainment, etc.). 
 
 Your budget is represented by our sprite, Finn. The better you take care of your budget, the happier Finn is. But if you go over your budget, Finn will die.
 
@@ -17,9 +17,13 @@ Your budget is represented by our sprite, Finn. The better you take care of your
 - React
 - MDBReact
 - React-Bootstrap
+- React-Typist
 - MongoDB/Mongoose
 
 ### Future Improvements
+
+- Adding custom tips and trips to help increase savings, stretch a user's budget, manage money
+- Incorporating "age range" to help young children/teenagers learn financial responsibility at an early age
 
 ### Links
 

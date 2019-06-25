@@ -7,8 +7,8 @@ import Charts from "./Charts";
 import AddExpense from "./AddExpense";
 import AddIncome from "./AddIncome";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
-import CharacterCard from "./CharacterCard"
-import StatsCard from "./StatsCard"
+import CharacterCard from "./CharacterCard";
+import StatsCard from "./StatsCard";
 import { Stats } from "fs";
 
 class Profile extends Component {
@@ -26,12 +26,11 @@ class Profile extends Component {
         </MDBRow>
         <MDBRow>
           <MDBCol>
-          <CharacterCard />
+            <CharacterCard />
           </MDBCol>
           <MDBCol>
-          <StatsCard />
+            <StatsCard />
           </MDBCol>
-
         </MDBRow>
       </MDBContainer>
     );

@@ -37,17 +37,17 @@ class App extends Component {
                   height='45'
                   className='d-inline-block align-top'
                 />
-                {" fingachi"}
+                {" finmoji"}
               </Navbar.Brand>
               <Nav className='justify-content-end' activeKey='/'>
                 <Nav.Item>
                   <Nav.Link href='/'>Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href='/statistics'>Stats</Nav.Link>
+                  <Nav.Link href='/profile'>Profile</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href='/getstarted'>Get Started</Nav.Link>
+                  <Nav.Link href='/statistics'>Statistics</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Navbar>
@@ -58,7 +58,6 @@ class App extends Component {
               <Route exact path='/signup' component={SingupForm} />
               <Route exact path='/' component={LandingPage} />
               <Route exact path='/statistics' component={Statistics} />
-              <Route exact path='/getstarted' component={GetStarted} />
             </UserContext.Provider>
             <div className='push' />
           </div>

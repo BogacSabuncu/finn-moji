@@ -14,9 +14,11 @@
   }
 }
 
-#fingachi-img {
+#finn {
   padding-top: 20px;
+  /* justify-content: center; */
 }
+
 
 #quote {
   font: bold 100% Consolas, Monaco, monospace;

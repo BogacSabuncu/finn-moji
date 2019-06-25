@@ -14,7 +14,7 @@ const FooterPage = () => {
         <MDBRow>    
           <MDBCol>
             <h5 id="FooterTitle" className="title">
-              Fingachi - Finance, simplified. &#128176;
+              Finmoji - Finance, simplified. &#128176;
             </h5>
             <p>
               Securing the bag is hard enough. We're here to make sure you hold
