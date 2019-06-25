@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Auth from "../utils/Auth";
 import Button from "react-bootstrap/Button";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 
 class LoginForm extends Component {
   static contextType = UserContext;
@@ -30,44 +30,43 @@ class LoginForm extends Component {
     }
   };
 
-
   render() {
     return (
       <MDBContainer className="container">
-      <MDBRow>
-      <MDBCol></MDBCol>
-      <MDBCol md="4">
-      <form onSubmit={this.submitHandler}>
-        <MDBInput
-          label='Username'
-          icon='user'
-          group
-          type='text'
-          name='username'
-          error="Wrong!"
-          success="Welcome Back!"
-          value={this.state.username}
-          onChange={this.changeHandler}
-          validate
-        />
+        <MDBRow>
+          <MDBCol />
+          <MDBCol md="4">
+            <form onSubmit={this.submitHandler}>
+              <MDBInput
+                label="Username"
+                icon="user"
+                group
+                type="text"
+                name="username"
+                error="Wrong!"
+                success="Welcome Back!"
+                value={this.state.username}
+                onChange={this.changeHandler}
+                validate
+              />
 
-        <MDBInput
-          label="Password"
-          icon='lock'
-          type='password'
-          name='password'
-          value={this.state.password}
-          onChange={this.changeHandler}
-        />
-        <div className="text-center">
-        <MDBBtn variant='success' onClick={this.submitHandler}>
-          Login
-        </MDBBtn>
-        </div>
-      </form>
-      </MDBCol>
-      <MDBCol></MDBCol>
-      </MDBRow>
+              <MDBInput
+                label="Password"
+                icon="lock"
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.changeHandler}
+              />
+              <div className="text-center">
+                <MDBBtn variant="success" onClick={this.submitHandler}>
+                  Login
+                </MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+          <MDBCol />
+        </MDBRow>
       </MDBContainer>
     );
   }
