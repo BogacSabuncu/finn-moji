@@ -28,7 +28,7 @@ class App extends Component {
       <Router>
         <div>
           <div className='wrapper'>
-            <Navbar bg='dark' variant='dark'>
+            <Navbar fluid bg='dark' variant='dark'>
               <Navbar.Brand href='/landing'>
                 <img
                   alt=''
