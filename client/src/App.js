@@ -53,16 +53,6 @@ class App extends Component {
               </Nav>
             </Navbar>
             <UserContext.Provider value={{ setUser, user }}>
-<<<<<<< HEAD
-
-              <Route exact path="/logs" component={Logs} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/login" component={LoginPage} />
-              <Route exact path="/signup" component={SingupForm} />
-              <Route exact path="/" component={LandingPage} />
-              <Route exact path="/statistics" component={Statistics} />
-              <Route exact path="/getstarted" component={GetStarted} />
-=======
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/login' component={LoginPage} />
@@ -70,7 +60,6 @@ class App extends Component {
               <Route exact path='/' component={LandingPage} />
               <Route exact path='/statistics' component={Statistics} />
               <Route exact path='/getstarted' component={GetStarted} />
->>>>>>> 82072c42e1293dea1937a437b57962535ec6adba
             </UserContext.Provider>
             <div className='push' />
           </div>
