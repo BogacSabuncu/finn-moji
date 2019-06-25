@@ -10,6 +10,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import Statistics from "./components/Statistics";
 import GetStarted from "./components/GetStarted";
 import FooterPage from "./components/Footer";
+import Logs from "./components/Logs";
 import "./stylesheets/App.css";
 
 class App extends Component {
