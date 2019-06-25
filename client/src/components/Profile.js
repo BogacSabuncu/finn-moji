@@ -21,7 +21,7 @@ class Profile extends Component {
       <MDBContainer>
         <MDBRow>
           <MDBCol className="text-center" md="12">
-            <h1>Welcome, NAME </h1>
+            <h1 id="">Chief called, this profile is it.</h1>
           </MDBCol>
         </MDBRow>
         <MDBRow>

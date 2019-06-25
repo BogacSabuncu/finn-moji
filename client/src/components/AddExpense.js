@@ -5,7 +5,8 @@ import {
   MDBModal,
   MDBModalBody,
   MDBModalHeader,
-  MDBModalFooter
+  MDBModalFooter,
+  MDBInput,
 } from "mdbreact";
 import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
@@ -54,18 +55,20 @@ class AddExpense extends Component {
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
-            MDBModal title
+            Add An Expense &#128557;
           </MDBModalHeader>
           <MDBModalBody>
             <form>
-              <input
+              <MDBInput
+                label='Expense Name'
                 type='text'
                 name='name'
                 value={this.state.name}
                 onChange={this.changeHandler}
                 placeholder='Ex. expense title'
               />
-              <input
+              <MDBInput
+                label='Expense Amount'
                 type='text'
                 name='value'
                 value={this.state.value}
@@ -73,6 +76,7 @@ class AddExpense extends Component {
                 placeholder='Ex. Value'
               />
               <select
+                className="browser-default custom-select"
                 name='category'
                 onChange={this.changeHandler}
                 placeholder='Ex. Category'
