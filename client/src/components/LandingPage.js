@@ -12,33 +12,50 @@ class LandingPage extends Component {
       <Container id="container">
         <Row>
           <Col xs={4}>
-            <img
-              id="fingachi-img"
-              src="https://via.placeholder.com/350"
-              alt="fingachi img"
-            />
+            <div id="finmoji-img" className="text-center">
+              <img
+                fluid
+                id="finn"
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png"
+                alt="finn finmoji img"
+              />
+            </div>
           </Col>
           <Col xs={8}>
             <h5 id="quote">
-              "Securing the bag is hard enough. Fingachi is here to make sure
-              you hold on to it."
+              "Securing the bag is hard enough. Finmoji is here to make sure you
+              hold on to it."
             </h5>
           </Col>
         </Row>
-
-        <Row>
-          <h3>Financial accountability made approachable</h3>
-          <p>
-            With Fingachi, taking responsibility for your personal finances has
-            never been more fun or hassle-free.{" "}
-          </p>
-        </Row>
-        <Row>
-          <h3>Info #2</h3>
-        </Row>
-        <Row>
-          <h3>Info #3</h3>
-        </Row>
+        <hr />
+        <div id="app-info">
+          <Row>
+            <h3 class="bullet">Financial accountability made approachable</h3>
+            <p>
+              With Finmoji, taking responsibility for your personal finances has
+              never been more fun or hassle-free. Finmoji can assist you in
+              allocating your income to a budget within your means.
+            </p>
+          </Row>
+          <Row>
+            <h3 class="bullet">Break down budgeting</h3>
+            <p>
+              Backed by market research, Finmoji provides the user with a
+              recommendation of what percentage of their income should be used
+              for fixed costs (rent, food, bills, etc.) and disposable expenses
+              (dining out, entertainment, etc.).
+            </p>
+          </Row>
+          <Row>
+            <h3 class="bullet">Intuitive features, effortless results</h3>
+            <p>
+              We bring together everything from balances and bills to your
+              credit score and more. It’s your financial life, in one place
+              that’s easy to understand.
+            </p>
+          </Row>
+        </div>
 
         <Row className="justify-content-md-center">
           <Col>

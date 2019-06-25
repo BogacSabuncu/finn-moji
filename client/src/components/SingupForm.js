@@ -37,7 +37,7 @@ class SignupForm extends Component {
   render() {
     return (
       <Container>
-        <form className="needs-validation" onSubmit={this.submitHandler} >
+        <form className="needs-validation" onSubmit={this.submitHandler}>
           <Row>
             <Col>
               <MDBInput
@@ -124,15 +124,17 @@ class SignupForm extends Component {
           <Row>
             <Col>
               <div className="text-center">
-                <MDBBtn
-                  href="/profile"
-                  size="lg"
-                  gradient="blue"
-                  // type="submit"
-                  onClick={this.submitHandler}
-                >
-                  Create Your Account!
-                </MDBBtn>
+                <Fragment>
+                  <MDBBtn
+                    href="/login"
+                    size="lg"
+                    gradient="blue"
+                    // type="submit"
+                    onClick={this.submitHandler}
+                  >
+                    Create Your Account!
+                  </MDBBtn>
+                </Fragment>
               </div>
             </Col>
           </Row>
