@@ -10,7 +10,7 @@ const StatsCard = () => {
         <MDBCardBody>
           <MDBCardTitle></MDBCardTitle>
           <MDBCardText>
-          <Charts />
+          <DonutChart />
           </MDBCardText>
           
         </MDBCardBody>

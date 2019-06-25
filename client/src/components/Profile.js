@@ -7,8 +7,8 @@ import Charts from "./Charts";
 import AddExpense from "./AddExpense";
 import AddIncome from "./AddIncome";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
-import CharacterCard from "./CharacterCard"
-import StatsCard from "./StatsCard"
+import CharacterCard from "./CharacterCard";
+import StatsCard from "./StatsCard";
 import { Stats } from "fs";
 import DonutChart from "./Donut.js";
 
@@ -27,13 +27,11 @@ class Profile extends Component {
         </MDBRow>
         <MDBRow>
           <MDBCol>
-          <CharacterCard />
+            <CharacterCard />
           </MDBCol>
           <MDBCol>
-          <StatsCard />
-          <DonutChart />
+            <StatsCard />
           </MDBCol>
-
         </MDBRow>
       </MDBContainer>
     );

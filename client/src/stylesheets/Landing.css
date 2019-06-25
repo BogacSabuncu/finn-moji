@@ -1,6 +1,11 @@
 #container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 30px auto 30px auto;
+}
+
+
+#finn {
+    padding-top: 20px;
 }
 
 @-webkit-keyframes typing {
@@ -12,10 +17,6 @@
   50% {
     border-color: transparent;
   }
-}
-
-#fingachi-img {
-  padding-top: 20px;
 }
 
 #quote {
@@ -33,9 +34,14 @@
     blink-caret .5s step-end infinite alternate;
 }
 
+/* #app-info {
+    padding-right: 10px;
+} */
+
 #fang {
   color: grey;
 }
+
 #oscar {
   color: rgb(202, 18, 202);
 }
