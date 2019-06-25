@@ -108,4 +108,98 @@ module.exports = function(app) {
         res.status(500).json({ error: err.message });
       });
   });
+
+  app.delete("/api/deleteIncome/:id", function(req, res) {
+    // Remove a note using the objectID
+    console.log("Thisisisisisisisisisiis", +req.params);
+    Income.remove(
+      {
+        _id: req.params.id
+      },
+      function(error, removed) {
+        // Log any errors from mongojs
+        if (error) {
+          console.log(error);
+          res.send(error);
+        }
+        else {
+          // Otherwise, send the mongojs response to the browser
+          // This will fire off the success function of the ajax request
+          console.log(removed);
+          res.send(removed);
+        }
+      }
+    );
+  });
+
+  app.delete("/api/deleteExpenses/:id", function(req, res) {
+    // Remove a note using the objectID
+    console.log("Thisisisisisisisisisiis", +req.params);
+    Expenses.remove(
+      {
+        _id: req.params.id
+      },
+      function(error, removed) {
+        // Log any errors from mongojs
+        if (error) {
+          console.log(error);
+          res.send(error);
+        }
+        else {
+          // Otherwise, send the mongojs response to the browser
+          // This will fire off the success function of the ajax request
+          console.log(removed);
+          res.send(removed);
+        }
+      }
+    );
+  });
+
+
+  app.put("/api/updateIncome/:id", function(req, res) {
+  Income.findByIdAndUpdate(
+    // the id of the item to find
+    req.params.id,
+    
+    // the change to be made. Mongoose will smartly combine your existing 
+    // document with this change, which allows for partial updates too
+    req.body,
+    
+    // an option that asks mongoose to return the updated version 
+    // of the document instead of the pre-updated one.
+    {new: true},
+    
+    // the callback function
+    (err, results) => {
+    // Handle any possible database errors
+        if (err) return res.status(500).send(err);
+        return res.send(results);
+    }
+)
+  });
+
+  app.put("/api/updateExpenses/:id", function(req, res) {
+    Expenses.findByIdAndUpdate(
+      // the id of the item to find
+      req.params.id,
+      
+      // the change to be made. Mongoose will smartly combine your existing 
+      // document with this change, which allows for partial updates too
+      req.body,
+      
+      // an option that asks mongoose to return the updated version 
+      // of the document instead of the pre-updated one.
+      {new: true},
+      
+      // the callback function
+      (err, results) => {
+      // Handle any possible database errors
+          if (err) return res.status(500).send(err);
+          return res.send(results);
+      }
+  )
+    });
+
+
+
 };

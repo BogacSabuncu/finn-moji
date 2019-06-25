@@ -6,6 +6,10 @@ import API from "../utils/API";
 import Charts from "./Charts";
 import AddExpense from "./AddExpense";
 import AddIncome from "./AddIncome";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
+import CharacterCard from "./CharacterCard"
+import StatsCard from "./StatsCard"
+import { Stats } from "fs";
 
 class Profile extends Component {
   static contextType = UserContext;
@@ -14,11 +18,22 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
-        <Charts />
-        <AddIncome />
-        <AddExpense />
-      </div>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol className="text-center" md="12">
+            <h1 id="">Chief called, this profile is it.</h1>
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          <MDBCol>
+          <CharacterCard />
+          </MDBCol>
+          <MDBCol>
+          <StatsCard />
+          </MDBCol>
+
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }
