@@ -10,6 +10,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import Statistics from "./components/Statistics";
 import GetStarted from "./components/GetStarted";
 import FooterPage from "./components/Footer";
+import Logs from "./components/Logs";
 import "./stylesheets/App.css";
 
 class App extends Component {
@@ -29,7 +30,7 @@ class App extends Component {
         <div>
           <div className='wrapper'>
             <Navbar bg='dark' variant='dark'>
-              <Navbar.Brand href='/landing'>
+              <Navbar.Brand href='/'>
                 <img
                   alt=''
                   src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/money-mouth-face_1f911.png'
@@ -39,9 +40,9 @@ class App extends Component {
                 />
                 {" fingachi"}
               </Navbar.Brand>
-              <Nav className='justify-content-end' activeKey='/landing'>
+              <Nav className='justify-content-end' activeKey='/'>
                 <Nav.Item>
-                  <Nav.Link href='/landing'>Home</Nav.Link>
+                  <Nav.Link href='/'>Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href='/statistics'>Stats</Nav.Link>
