@@ -41,7 +41,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/users", authWare, function(req, res) {
+  app.get("/api/users", function(req, res) {
     User.find()
       .populate("expenses")
       .populate("income")
@@ -104,7 +104,7 @@ module.exports = function(app) {
     User.findOne({ _id: req.params.id })
       .populate("expenses")
       .then(function(result) {
-        console.log("income", result);
+        console.log("expense", result);
         res.json(result);
       })
 
