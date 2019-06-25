@@ -100,7 +100,7 @@ module.exports = function(app) {
     User.findOne({ _id: req.params.id })
       .populate("expenses")
       .then(function(result) {
-        console.log("income", result);
+        console.log("expense", result);
         res.json(result);
       })
 
