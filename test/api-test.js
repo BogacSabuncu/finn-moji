@@ -13,7 +13,10 @@ let usrArr = [{ username: "User1", password: "password1" }, { username: "User2",
 describe("GET /api/users", function () {
     beforeEach(function (done) {
         request = chai.request(server);
-        db.User.deleteMany({}).then(function () {
+        db.User.deleteMany({}).then(function (results) {
+            done();
+        }).catch(function (err) {
+            console.log(err);
             done();
         });
     });
@@ -43,8 +46,8 @@ describe("GET /api/users", function () {
 
                     done();
                 });
-            }).catch(err => {
-                console.log(err);
+            }).catch(function (err) {
+                console.log(err)
                 done();
             });
     });
@@ -54,6 +57,9 @@ describe("POST /api/signup", function () {
     beforeEach(function (done) {
         request = chai.request(server);
         db.User.deleteMany({}).then(function () {
+            done();
+        }).catch(function (err) {
+            console.log(err)
             done();
         });
     });
@@ -89,6 +95,9 @@ describe("POST /api/signup", function () {
                 }).then(function (dbUser) {
                     expect(dbUser).to.not.be.null;
 
+                    done();
+                }).catch(function (err) {
+                    console.log(err)
                     done();
                 });
             });
@@ -164,6 +173,9 @@ describe("POST /api/authenticate", function () {
             };
 
             db.User.create(testUser).then(function () {
+                done();
+            }).catch(function (err) {
+                console.log(err)
                 done();
             });
         });
