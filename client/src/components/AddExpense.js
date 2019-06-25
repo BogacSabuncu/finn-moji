@@ -35,6 +35,9 @@ class AddExpense extends Component {
 
   addExpenseHandler = e => {
     e.preventDefault();
+    this.setState({
+      ["modal"+14]: !this.state["modal"+14]
+    });
     const { name, value, category } = this.state;
     API.addExpense({
       name,

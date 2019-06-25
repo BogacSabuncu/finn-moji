@@ -41,7 +41,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/users", authWare, function(req, res) {
+  app.get("/api/users", function(req, res) {
     User.find()
       .populate("expenses")
       .populate("income")

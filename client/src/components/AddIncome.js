@@ -34,6 +34,9 @@ class AddIncome extends Component {
 
   addIncomeHandler = e => {
     e.preventDefault();
+    this.setState({
+      ["modal" + 14]: !this.state["modal" + 14]
+    });
     const { nameIncome, valueIncome } = this.state;
     if (nameIncome) {
       API.addIncome({
