@@ -28,8 +28,8 @@ class App extends Component {
       <Router>
         <div>
           <div className='wrapper'>
-            <Navbar fluid bg='dark' variant='dark'>
-              <Navbar.Brand href='/landing'>
+            <Navbar bg='dark' variant='dark'>
+              <Navbar.Brand href='/'>
                 <img
                   alt=''
                   src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/money-mouth-face_1f911.png'
@@ -39,9 +39,9 @@ class App extends Component {
                 />
                 {" fingachi"}
               </Navbar.Brand>
-              <Nav className='justify-content-end' activeKey='/landing'>
+              <Nav className='justify-content-end' activeKey='/'>
                 <Nav.Item>
-                  <Nav.Link href='/landing'>Home</Nav.Link>
+                  <Nav.Link href='/'>Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href='/statistics'>Stats</Nav.Link>

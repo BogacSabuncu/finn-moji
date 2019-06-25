@@ -11,7 +11,7 @@ const FooterPage = () => {
       className="font-small pt-4 mt-4"
     >
       <MDBContainer fluid className="text-center text-md-left">
-        <MDBRow>
+        <MDBRow>    
           <MDBCol>
             <h5 id="FooterTitle" className="title">
               Fingachi - Finance, simplified. &#128176;

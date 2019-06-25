@@ -49,8 +49,8 @@ class AddExpense extends Component {
   render() {
     return (
       <MDBContainer>
-        <MDBBtn color='primary' onClick={this.toggle(14)}>
-          Add Expense
+        <MDBBtn color='red darken-3' onClick={this.toggle(14)}>
+          Expense
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
