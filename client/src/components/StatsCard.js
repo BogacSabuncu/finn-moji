@@ -5,7 +5,7 @@ import Charts from "./Charts";
 const StatsCard = () => {
     return (
     <MDBContainer>
-      <MDBCard style={{ width: "22rem", marginTop: "1rem" }}>
+      <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
         <MDBCardHeader color="deep-orange lighten-1">Your Statistics:</MDBCardHeader>
         <MDBCardBody>
           <MDBCardTitle></MDBCardTitle>
