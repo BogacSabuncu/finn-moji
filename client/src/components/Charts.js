@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import '../../node_modules/react-vis/dist/style.css';
 import API from "../utils/API";
 import {
   XYPlot,
   XAxis,
   YAxis,
-  VerticalGridLines,
-  HorizontalGridLines,
+  // VerticalGridLines,
+  // HorizontalGridLines,
   VerticalBarSeries,
-  VerticalBarSeriesCanvas,
+  // VerticalBarSeriesCanvas,
   DiscreteColorLegend
 } from 'react-vis';
 

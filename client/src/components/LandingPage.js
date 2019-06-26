@@ -12,7 +12,7 @@ import 'react-typist/dist/Typist'
 class LandingPage extends Component {
   render() {
     return (
-      <Container id="container">
+      <Container className="overflow-auto" id="container">
         <Row>
           <Col xs={4}>
             <div id="finmoji-img" className="text-center">
@@ -46,7 +46,6 @@ class LandingPage extends Component {
           </Col>
         </Row>
         <hr />
-        <div id="app-info">
           <Row>
             <h3 class="bullet">Financial accountability made approachable</h3>
             <p>
@@ -72,7 +71,6 @@ class LandingPage extends Component {
               that’s easy to understand.
             </p>
           </Row>
-        </div>
 
         <Row className="justify-content-md-center">
           <Col>

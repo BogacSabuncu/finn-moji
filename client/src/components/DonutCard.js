@@ -7,19 +7,17 @@ import {
   MDBCardTitle,
   MDBCardText
 } from "mdbreact";
-import Charts from "./Charts";
+import DonutChart from "./Donut.js";
 
-const StatsCard = () => {
+const DonutCard = () => {
   return (
     <MDBContainer>
       <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
-        <MDBCardHeader color="deep-orange lighten-1">
-          Your Statistics:
-        </MDBCardHeader>
+        <MDBCardHeader color="blue darken-3">Your Expenses:</MDBCardHeader>
         <MDBCardBody style={{ marginLeft: "auto", marginRight: "auto" }}>
           <MDBCardTitle />
           <MDBCardText>
-            <Charts />
+            <DonutChart />
           </MDBCardText>
         </MDBCardBody>
       </MDBCard>
@@ -27,4 +25,4 @@ const StatsCard = () => {
   );
 };
 
-export default StatsCard;
+export default DonutCard;
