@@ -12,6 +12,10 @@ class LoginForm extends Component {
     password: ""
   };
 
+  redirectToTarget = () => {
+    this.props.history.push("/profile");
+  }
+
   changeHandler = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -27,6 +31,7 @@ class LoginForm extends Component {
         this.props.history.push("/profile");
       });
     }
+    this.redirectToTarget();
   };
 
   render() {

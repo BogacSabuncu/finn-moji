@@ -18,7 +18,7 @@ import "../stylesheets/CharacterCard.css";
 const CharacterCard = () => {
   return (
     <MDBContainer>
-      <MDBCard style={{ width: "22rem", marginTop: "1rem" }}>
+      <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
         <MDBCardHeader color="purple lighten-1">
           Finn is feeling...
         </MDBCardHeader>

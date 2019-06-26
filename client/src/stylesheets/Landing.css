@@ -1,5 +1,4 @@
 #container {
-  /* border: 1px solid black; */
   margin: 30px auto 30px auto;
 }
 
@@ -32,10 +31,6 @@
   -webkit-animation: typing 7s steps(83, end),
     blink-caret .5s step-end infinite alternate;
 }
-
-/* #app-info {
-    padding-right: 10px;
-} */
 
 #fang {
   color: grey;
