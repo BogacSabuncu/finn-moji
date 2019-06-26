@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Auth from "../utils/Auth";
-import Button from "react-bootstrap/Button";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 
 class LoginForm extends Component {
@@ -12,6 +11,10 @@ class LoginForm extends Component {
     username: "",
     password: ""
   };
+
+  redirectToTarget = () => {
+    this.props.history.push("/profile");
+  }
 
   changeHandler = e => {
     const { name, value } = e.target;
@@ -28,6 +31,7 @@ class LoginForm extends Component {
         this.props.history.push("/profile");
       });
     }
+    this.redirectToTarget();
   };
 
   render() {

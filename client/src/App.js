@@ -8,7 +8,6 @@ import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 import { Navbar, Nav } from "react-bootstrap";
 import Statistics from "./components/Statistics";
-import GetStarted from "./components/GetStarted";
 import FooterPage from "./components/Footer";
 import Logs from "./components/Logs";
 import "./stylesheets/App.css";
@@ -40,11 +39,11 @@ class App extends Component {
     });
   };
 
-  postIncome = data =>{
+  postIncome = data => {
     API.addIncome(data).then(response => {
       this.getUser();
     });
-  }
+  };
 
   componentDidMount() {
     if (localStorage.getItem("token")) {
