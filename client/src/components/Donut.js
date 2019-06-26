@@ -5,7 +5,7 @@ import { RadialChart, Hint } from 'react-vis';
 import API from "../utils/API";
 import { set } from "mongoose";
 
-export default class SimpleRadialChart extends Component {
+export default class DonutChart extends Component {
 	state = {
 		value: false,
 		expenses: []
