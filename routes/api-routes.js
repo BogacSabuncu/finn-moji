@@ -76,7 +76,7 @@ module.exports = function(app) {
           { new: true }
         );
       })
-      .then(function () {
+      .then(function() {
         res.end();
       })
       .catch(function(err) {
@@ -93,7 +93,7 @@ module.exports = function(app) {
           { new: true }
         );
       })
-      .then(function () {
+      .then(function() {
         res.end();
       })
       .catch(function(err) {
@@ -115,7 +115,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/getExpenses/:id", authWare, function(req, res) {
-    User.findOne({ _id: req.params.id })
+    User.findOne({ _id: req.params.id }, "-password")
       .populate("expenses")
       .then(function(result) {
         console.log("expense", result);
