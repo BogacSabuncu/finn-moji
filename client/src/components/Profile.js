@@ -6,6 +6,7 @@ import CharacterCard from "./CharacterCard";
 import StatsCard from "./StatsCard";
 import DonutCard from "./DonutCard.js";
 
+
 class Profile extends Component {
   static contextType = UserContext;
 
@@ -27,6 +28,9 @@ class Profile extends Component {
             <StatsCard />
             <DonutCard />
           </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          
         </MDBRow>
       </MDBContainer>
     );
