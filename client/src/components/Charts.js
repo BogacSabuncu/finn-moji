@@ -13,115 +13,66 @@ import {
   VerticalBarSeriesCanvas,
   DiscreteColorLegend
 } from 'react-vis';
+import UserContext from "../context/UserContext.js";
 
 class Charts extends Component {
+  static contextType = UserContext;
 
 
-  state = {
-    data3: "",
-    data4:  ""}
-
-
-  componentDidMount = () => {
-    let totalIncome = 0;
-    let bills = 0;
+  calculate = (expenses, income) => {
+    let needs = 0;
+    let wants = 0;
     let savings = 0;
-    API.getIncome()
-      .then((response)=>  {
-        console.log(response.data);
-        for (let i = 0; i < response.data.income.length; i++) {
-          
-          totalIncome += response.data.income[i].valueIncome
-        }
-        console.log("totalincome", + totalIncome);
-        API.getExpenses()
-        .then((response) => {
-          console.log(response.data);
-  
-          for (let i = 0; i < response.data.expenses.length; i++) {
+    let totalIncome=0;
 
-            if (response.data.expenses[i].category !== "Savings") { bills += response.data.expenses[i].value; }
-            else { savings += response.data.expenses[i].value; }
+    expenses.forEach(expense => {
+      const needsCategories = ["Housing", "Healthcare", "Food", "Insurance"];
+      const savingsCategories = ["Savings"];
+      if(needsCategories.includes(expense.category)){
+        needs += expense.value;
+      }else if(savingsCategories.includes(expense.category)){
+        savings += expense.value;
+      }else{
+        wants += expense.value;
+      }
+    });
 
+    income.forEach(element => {
+      totalIncome += element.valueIncome;
+    });
 
+    console.log("needs", needs)
+    console.log("wants ", wants)
+    console.log("savings ", savings)
 
-            //bills += response.data.expenses[i].value
-  
-  
-          }
-          console.log("totalexpenses", + bills);
-  
-   this.calculate(totalIncome, bills,savings);
-        }).catch(err => console.log(err));
-  
-        
+    needs = Math.floor(needs * 100 / totalIncome);
+    wants = Math.floor(wants * 100 / totalIncome);
+    savings = Math.floor(savings * 100 / totalIncome);
+    console.log("after percent conversion")
+    console.log("needs", needs)
+    console.log("wants ", wants)
+    console.log("savings ", savings)
 
-
-      })
-
-      .catch(err => console.log(err));
-
-    // API.getExpenses()
-    //   .then(function (response) {
-    //     console.log(response.data);
-
-    //     for (let i = 0; i < response.data.expenses.length; i++) {
-    //       bills += response.data.expenses[i].value
-
-
-    //     }
-    //     console.log("totalexpenses", + bills);
-
-
-    //   })
-
-    //   .catch(err => console.log(err));
-   
-
-  };
-
-  calculate = (totalIncome, bills, savings) => {
-    let needs = Math.floor(bills * 100 / totalIncome);
-    let savings2 =  Math.floor(savings * 100 / totalIncome);
-    let disposable = 100 - needs - savings2;
-    
-    console.log("needs",needs)
-    console.log("disposable",+disposable)
-    console.log("savings",+savings2)
-    let data4new= [
+    let userGraphData = [
       { x: 'Needs', y: `${needs}` },
+      { x: 'Wants', y: `${wants}` },
+      { x: 'Savings', y: `${savings}` }
+    ];
 
-
-      { x: 'Wants', y: `${disposable}`},
-
-
-      { x: 'Savings', y: `${savings2}` }
-    ]
-  ;
-    this.setState({
-      data4:data4new
-    }, () => {
-      console.log(this.state.data4)
-    })
-
+    return userGraphData;
   }
 
   render() {
-    const data1 = [
+    const gaData = [
       { x: 'Needs', y: 50 },
-
-
       { x: 'Wants', y: 30 },
-
-
       { x: 'Savings', y: 20 }
-
     ];
-    const data2=this.state.data4;
-  
-    return (
 
-      
+    const {expenses, income} = this.context.userObj || { expenses: [], income: [] };
+    const userGraphData = this.calculate(expenses, income);
+
+    return (      
       <div className="App">
         <XYPlot margin={{ bottom: 70 }} xType="ordinal" height={300} width={400} yDomain={[0, 100]}>
           <DiscreteColorLegend
@@ -134,15 +85,15 @@ class Charts extends Component {
               },
               {
                 title: 'You',
-                color: 'yellow'
+                color: 'purple'
               }
             ]}
           />
 
           <XAxis tickLabelAngle={-45} />
-          <YAxis/>
-          <VerticalBarSeries data={data1} color="red" />
-          <VerticalBarSeries data={data2} color="yellow" />
+          <YAxis />
+          <VerticalBarSeries data={gaData} color="red" />
+          <VerticalBarSeries data={userGraphData} color="purple" />
         </XYPlot>
       </div>
     );

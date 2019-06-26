@@ -17,7 +17,7 @@ import API from "./utils/API";
 class App extends Component {
   state = {
     user: null,
-    userObj: []
+    userObj: null
   };
 
   setUser = user => {
@@ -36,12 +36,20 @@ class App extends Component {
 
   postExpense = data => {
     API.addExpense(data).then(response => {
-      this.refreshUser(response.data);
+      this.getUser();
     });
   };
 
+  postIncome = data =>{
+    API.addIncome(data).then(response => {
+      this.getUser();
+    });
+  }
+
   componentDidMount() {
-    this.getUser();
+    if (localStorage.getItem("token")) {
+      this.getUser();
+    }
   }
 
   render() {
@@ -79,7 +87,8 @@ class App extends Component {
                 setUser,
                 user,
                 userObj: this.state.userObj,
-                postExpense: this.postExpense
+                postExpense: this.postExpense,
+                postIncome: this.postIncome
               }}
             >
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}

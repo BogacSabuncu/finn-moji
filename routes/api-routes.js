@@ -76,6 +76,9 @@ module.exports = function(app) {
           { new: true }
         );
       })
+      .then(function () {
+        res.end();
+      })
       .catch(function(err) {
         res.status(500).json({ error: err.message });
       });
@@ -89,6 +92,9 @@ module.exports = function(app) {
           { $push: { income: result._id } },
           { new: true }
         );
+      })
+      .then(function () {
+        res.end();
       })
       .catch(function(err) {
         res.status(500).json({ error: err.message });
