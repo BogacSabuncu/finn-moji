@@ -13,6 +13,9 @@ export default {
       console.log("results!!!", result);
     });
   },
+  getUser: function() {
+    return axios.get("/api/user/" + localStorage.getItem("userId"));
+  },
   addExpense: function(data) {
     console.log("userInfo", data);
     return axios.post(
@@ -29,46 +32,29 @@ export default {
   },
 
   getIncome: function() {
-    
-    return axios.get(
-      "/api/getIncome/" + localStorage.getItem("userId")
-    );
+    return axios.get("/api/getIncome/" + localStorage.getItem("userId"));
   },
 
   getExpenses: function() {
-    
-    return axios.get(
-      "/api/getExpenses/" + localStorage.getItem("userId")
-    );
+    return axios.get("/api/getExpenses/" + localStorage.getItem("userId"));
   },
   deleteIncome: function(id) {
-    
-    return axios.delete(
-      "/api/deleteIncome/" + id
-    );
+    return axios.delete("/api/deleteIncome/" + id);
   },
 
   deleteExpenses: function(id) {
-    
-    return axios.delete(
-      "/api/deleteExpenses/" + id
-    );
+    return axios.delete("/api/deleteExpenses/" + id);
   },
 
   updateIncome: function(id, value) {
     console.log(value);
     console.log(id);
-    return axios.put(
-      "/api/updateIncome/" + id, value
-    );
+    return axios.put("/api/updateIncome/" + id, value);
   },
 
   updateExpenses: function(id, value) {
     console.log(value);
     console.log(id);
-    return axios.put(
-      "/api/updateExpenses/" + id, value
-    );
+    return axios.put("/api/updateExpenses/" + id, value);
   }
-
 };

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./components/LoginPage";
-import UserContext from "./context/UserContext";
+import { Provider as UserProvider } from "./context/UserContext";
 import SingupForm from "./components/SingupForm";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
@@ -12,15 +12,37 @@ import GetStarted from "./components/GetStarted";
 import FooterPage from "./components/Footer";
 import Logs from "./components/Logs";
 import "./stylesheets/App.css";
+import API from "./utils/API";
 
 class App extends Component {
   state = {
-    user: null
+    user: null,
+    userObj: []
   };
 
   setUser = user => {
     this.setState({ user });
   };
+
+  getUser = () => {
+    API.getUser().then(response => {
+      this.refreshUser(response.data);
+    });
+  };
+
+  refreshUser = userData => {
+    this.setState({ userObj: userData });
+  };
+
+  postExpense = data => {
+    API.addExpense(data).then(response => {
+      this.refreshUser(response.data);
+    });
+  };
+
+  componentDidMount() {
+    this.getUser();
+  }
 
   render() {
     const { user } = this.state;
@@ -52,14 +74,21 @@ class App extends Component {
                 </Nav.Item>
               </Nav>
             </Navbar>
-            <UserContext.Provider value={{ setUser, user }}>
+            <UserProvider
+              value={{
+                setUser,
+                user,
+                userObj: this.state.userObj,
+                postExpense: this.postExpense
+              }}
+            >
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/signup' component={SingupForm} />
               <Route exact path='/' component={LandingPage} />
               <Route exact path='/statistics' component={Statistics} />
-            </UserContext.Provider>
+            </UserProvider>
             <div className='push' />
           </div>
           <FooterPage />
