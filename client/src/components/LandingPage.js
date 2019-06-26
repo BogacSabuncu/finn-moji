@@ -3,13 +3,16 @@ import { withRouter } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "../stylesheets/Landing.css";
 import { MDBBtn } from "mdbreact";
-
+import Typist from "react-typist";
+import "../stylesheets/Typist.css"
 // import UserContext from "../context/UserContext";
+import 'react-typist/dist/Typist'
+
 
 class LandingPage extends Component {
   render() {
     return (
-      <Container id="container">
+      <Container className="overflow-auto" id="container">
         <Row>
           <Col xs={4}>
             <div id="finmoji-img" className="text-center">
@@ -22,14 +25,27 @@ class LandingPage extends Component {
             </div>
           </Col>
           <Col xs={8}>
-            <h5 id="quote">
-              "Securing the bag is hard enough. Finmoji is here to make sure you
-              hold on to it."
-            </h5>
+            <div className="quoteBox">
+              <Typist
+                cursor={{
+                  show: false,
+                  blink: true,
+                  element: "|",
+                  hideWhenDone: false,
+                  hideWhenDoneDelay: 1000
+                }}
+              >
+                <h1>
+                  <i>
+                    <strong>"</strong>Securing the bag is hard enough. We're
+                    here to make sure you hold on to it.<strong>"</strong>
+                  </i>
+                </h1>
+              </Typist>
+            </div>
           </Col>
         </Row>
         <hr />
-        <div id="app-info">
           <Row>
             <h3 class="bullet">Financial accountability made approachable</h3>
             <p>
@@ -55,7 +71,6 @@ class LandingPage extends Component {
               that’s easy to understand.
             </p>
           </Row>
-        </div>
 
         <Row className="justify-content-md-center">
           <Col>
