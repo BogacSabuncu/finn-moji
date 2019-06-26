@@ -11,6 +11,7 @@ import CharacterCard from "./CharacterCard";
 import StatsCard from "./StatsCard";
 import { Stats } from "fs";
 
+
 class Profile extends Component {
   static contextType = UserContext;
 
@@ -31,6 +32,9 @@ class Profile extends Component {
           <MDBCol>
             <StatsCard />
           </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          
         </MDBRow>
       </MDBContainer>
     );

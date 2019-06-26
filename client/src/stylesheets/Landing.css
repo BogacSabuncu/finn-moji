@@ -19,24 +19,10 @@
   }
 }
 
-#quote {
-  font: bold 100% Consolas, Monaco, monospace;
-  border-right: .1em solid black;
-  width: 16.5em;
-  width: 83ch;
-  margin: 2em 1em;
-  white-space: nowrap;
-  overflow: hidden;
-  position: static;
-  float: left;
-  word-wrap: break-word;
-  -webkit-animation: typing 7s steps(83, end),
-    blink-caret .5s step-end infinite alternate;
+.quoteBox {
+  height: 200px;
+  background-color: powderblue
 }
-
-/* #app-info {
-    padding-right: 10px;
-} */
 
 #fang {
   color: grey;

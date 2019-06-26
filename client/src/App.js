@@ -16,6 +16,7 @@ import "./stylesheets/App.css";
 class App extends Component {
   state = {
     user: null
+    
   };
 
   setUser = user => {
