@@ -1,22 +1,30 @@
-import React from 'react';
-import { MDBContainer, MDBCardHeader, MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import React from "react";
+import {
+  MDBContainer,
+  MDBCardHeader,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText
+} from "mdbreact";
 import Charts from "./Charts";
 
 const StatsCard = () => {
-    return (
+  return (
     <MDBContainer>
       <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
-        <MDBCardHeader color="deep-orange lighten-1">Your Statistics:</MDBCardHeader>
-        <MDBCardBody>
-          <MDBCardTitle></MDBCardTitle>
+        <MDBCardHeader color="deep-orange lighten-1">
+          Your Statistics:
+        </MDBCardHeader>
+        <MDBCardBody style={{ marginLeft: "auto", marginRight: "auto" }}>
+          <MDBCardTitle />
           <MDBCardText>
-          <Charts />
+            <Charts />
           </MDBCardText>
-          
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
-    );
-    };
-    
-    export default StatsCard;
+  );
+};
+
+export default StatsCard;

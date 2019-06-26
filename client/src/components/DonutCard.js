@@ -1,22 +1,28 @@
-import React from 'react';
-import { MDBContainer, MDBCardHeader, MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import React from "react";
+import {
+  MDBContainer,
+  MDBCardHeader,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText
+} from "mdbreact";
 import DonutChart from "./Donut.js";
 
 const DonutCard = () => {
-    return (
+  return (
     <MDBContainer>
-      <MDBCard style={{ width: "auto", marginTop: "1rem"}}>
+      <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
         <MDBCardHeader color="blue darken-3">Your Expenses:</MDBCardHeader>
-        <MDBCardBody>
-          <MDBCardTitle></MDBCardTitle>
+        <MDBCardBody style={{ marginLeft: "auto", marginRight: "auto" }}>
+          <MDBCardTitle />
           <MDBCardText>
-          <DonutChart />
+            <DonutChart />
           </MDBCardText>
-          
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
-    );
-    };
-    
-    export default DonutCard;
+  );
+};
+
+export default DonutCard;
