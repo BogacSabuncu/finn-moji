@@ -31,13 +31,13 @@ class App extends Component {
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">
               <img
-                alt=""
-                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/money-mouth-face_1f911.png"
-                width="45"
-                height="45"
+                alt="Finmoji navbar icon"
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/cat-face-with-wry-smile_1f63c.png"
+                width="50"
+                height="50"
                 className="d-inline-block align-top"
               />
-              {" finmoji"}
+              {" Finmoji"}
             </Navbar.Brand>
             <Nav className="justify-content-end" activeKey="/">
               <Nav.Item>

@@ -1,6 +1,27 @@
 #container {
-  margin: 30px auto 30px auto;
+  margin: 45px auto 30px auto;
+
 }
+
+.icondiv {
+  padding: 5px;
+}
+
+.fa-search-dollar {
+  color: green;
+  padding: 10px 0px;
+}
+
+.fa-hand-holding-usd {
+  color: blue;
+  padding: 10px 0px;
+}
+
+.fa-coins {
+  color: gold;
+  padding: 10px 0px;
+}
+
 
 #finn {
     padding-top: 20px;
@@ -19,7 +40,24 @@
 
 .quoteBox {
   height: 200px;
-  background-color: powderblue
+
+}
+
+#quoteText {
+  text-shadow: 2px 2px grey;
+}
+
+.finnSteps {
+ padding: 15px;
+}
+
+.finnFaces {
+  padding-bottom: 15px;
+}
+
+#line {
+  margin-top: 45px;
+  margin-bottom: 50px;
 }
 
 #fang {
