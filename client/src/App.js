@@ -8,7 +8,6 @@ import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 import { Navbar, Nav } from "react-bootstrap";
 import Statistics from "./components/Statistics";
-import GetStarted from "./components/GetStarted";
 import FooterPage from "./components/Footer";
 import Logs from "./components/Logs";
 import "./stylesheets/App.css";
@@ -27,43 +26,43 @@ class App extends Component {
     const setUser = this.setUser;
     return (
       <Router>
-        <div>
-          <div className='wrapper'>
-            <Navbar bg='dark' variant='dark'>
-              <Navbar.Brand href='/'>
-                <img
-                  alt=''
-                  src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/money-mouth-face_1f911.png'
-                  width='45'
-                  height='45'
-                  className='d-inline-block align-top'
-                />
-                {" finmoji"}
-              </Navbar.Brand>
-              <Nav className='justify-content-end' activeKey='/'>
-                <Nav.Item>
-                  <Nav.Link href='/'>Home</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href='/profile'>Profile</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href='/statistics'>Statistics</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Navbar>
+        <>
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">
+              <img
+                alt=""
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/money-mouth-face_1f911.png"
+                width="45"
+                height="45"
+                className="d-inline-block align-top"
+              />
+              {" finmoji"}
+            </Navbar.Brand>
+            <Nav className="justify-content-end" activeKey="/">
+              <Nav.Item>
+                <Nav.Link href="/">Home</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/profile">Profile</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/statistics">Statistics</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Navbar>
+          <div className="wrapper">
             <UserContext.Provider value={{ setUser, user }}>
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/login' component={LoginPage} />
-              <Route exact path='/signup' component={SingupForm} />
-              <Route exact path='/' component={LandingPage} />
-              <Route exact path='/statistics' component={Statistics} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/login" component={LoginPage} />
+              <Route exact path="/signup" component={SingupForm} />
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/statistics" component={Statistics} />
             </UserContext.Provider>
-            <div className='push' />
+            <div className="push" />
           </div>
           <FooterPage />
-        </div>
+        </>
       </Router>
     );
   }
