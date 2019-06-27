@@ -56,7 +56,7 @@ class AddExpense extends Component {
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
-            Add An Expense &#128557;
+            Add An Expense <span role="img" aria-label="expense-icon">&#128557;</span>
           </MDBModalHeader>
           <MDBModalBody>
             <form>
@@ -83,6 +83,9 @@ class AddExpense extends Component {
                 placeholder='Ex. Category'
                 value={this.state.category}
               >
+                <option defaultValue=''>
+                  Choose a Category
+                </option>
                 <option value='Housing'>Housing</option>
                 <option value='Healthcare'>Healthcare</option>
                 <option value='Food'>Food</option>
