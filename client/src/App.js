@@ -7,6 +7,10 @@ import SingupForm from "./components/SingupForm";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 import { Navbar, Nav } from "react-bootstrap";
+import {
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+  } from "mdbreact";
 import Statistics from "./components/Statistics";
 import FooterPage from "./components/Footer";
 import Logs from "./components/Logs";
@@ -57,30 +61,86 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div className='wrapper'>
-            <Navbar bg='dark' variant='dark'>
-              <Navbar.Brand href='/'>
-                <img
-                  alt=''
-                  src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/microsoft/74/money-mouth-face_1f911.png'
-                  width='45'
-                  height='45'
-                  className='d-inline-block align-top'
-                />
-                {" finmoji"}
-              </Navbar.Brand>
-              <Nav className='justify-content-end' activeKey='/'>
-                <Nav.Item>
-                  <Nav.Link href='/'>Home</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href='/profile'>Profile</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href='/statistics'>Statistics</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Navbar>
+        <MDBNavbar color="special-color-dark" dark expand="md">
+        <MDBNavbarBrand>
+        <img
+                alt="Finmoji navbar icon"
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/cat-face-with-wry-smile_1f63c.png"
+                width="50"
+                height="50"
+                className="d-inline-block align-top"
+              />
+
+          <strong className="white-text"> &nbsp; FinMoji</strong>
+        </MDBNavbarBrand>
+        {/* <MDBNavbarToggler onClick={this.toggleCollapse} /> */}
+        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+          <MDBNavbarNav left>
+            <MDBNavItem>
+              <MDBNavLink to="/">Home</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/profile">Profile</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/statistics">Statistics</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBDropdown>
+                <MDBDropdownToggle nav caret>
+                  <span className="mr-2">Resources</span>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="robinhood"
+                  href="https://robinhood.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                Robinhood - Invest Commission-Free{" "}
+                </a>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="simpledollar"
+                  href="https://www.thesimpledollar.com/blog-overview/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                 Simple Dollar - Financial Blog{" "}
+                </a>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="stackingbenjamins"
+                  href="https://www.stackingbenjamins.com/about/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Stacking Benjamins - Finance Podcast
+                </a>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="beermoney"
+                  href="https://www.reddit.com/r/beermoney/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                 Beermoney - Earn Extra Income{" "}
+                </a>
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+          </MDBNavbarNav>
+          <MDBNavbarNav right>
+            <MDBNavItem>
+            </MDBNavItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBNavbar>
             <UserProvider
               value={{
                 setUser,
@@ -88,8 +148,7 @@ class App extends Component {
                 userObj: this.state.userObj,
                 postExpense: this.postExpense,
                 postIncome: this.postIncome
-              }}
-            >
+              }}>
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/login' component={LoginPage} />
@@ -98,9 +157,9 @@ class App extends Component {
               <Route exact path='/statistics' component={Statistics} />
             </UserProvider>
             <div className='push' />
-          </div>
+          {/* </div> */}
           <FooterPage />
-        </div>
+        </div> 
       </Router>
     );
   }
