@@ -1,26 +1,22 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
+=======
+import UserContext from "../context/UserContext.js";
+>>>>>>> b90dd4aa699753a825609837a423b48ed8dc98aa
 import "../../node_modules/react-vis/dist/style.css";
 import { RadialChart, Hint } from "react-vis";
 import API from "../utils/API";
 import { set } from "mongoose";
 
 export default class DonutChart extends Component {
+  static contextType = UserContext;
   state = {
-    value: false,
-    expenses: []
+    value: false
   };
 
-  componentDidMount = () => {
-    API.getExpenses().then(response => {
-      this.setState({ expenses: response.data.expenses });
-      this.calculate_theta();
-      console.log(this.state.expenses);
-    });
-  };
-
-  calculate_theta = () => {
+  calculate_theta = expenses => {
     let data = [];
-    this.state.expenses.forEach(expense => {
+    expenses.forEach(expense => {
       let expenseObj = {
         label: expense.name,
         subLabel: expense.category,
@@ -33,8 +29,6 @@ export default class DonutChart extends Component {
   };
 
   setValue = v => {
-    console.log(v);
-
     let value = {
       Name: v.label,
       Category: v.subLabel,
@@ -47,9 +41,11 @@ export default class DonutChart extends Component {
 
   render() {
     const { value } = this.state;
-    let graph_data = this.calculate_theta();
+    const { expenses } = this.context.userObj || { expenses: [] };
+    let graph_data = this.calculate_theta(expenses);
+
     return (
-      <div id="donut">
+      <div id='donut'>
         <RadialChart
           className={"donut-chart-expenses"}
           innerRadius={100}
@@ -63,7 +59,7 @@ export default class DonutChart extends Component {
           padAngle={0.04}
           showLabels={false}
         >
-          {value !== false &&
+          {value !== false && (
             <Hint value={value}>
               <div
                 style={{
@@ -76,17 +72,12 @@ export default class DonutChart extends Component {
                   textAlign: "center"
                 }}
               >
-                <h4>
-                  {value.Amount + "$"}
-                </h4>
-                <h5>
-                  {value.Name}
-                </h5>
-                <h6>
-                  {value.Category}
-                </h6>
+                <h4>{"$"+value.Amount}</h4>
+                <h5>{value.Name}</h5>
+                <h6>{value.Category}</h6>
               </div>
-            </Hint>}
+            </Hint>
+          )}
         </RadialChart>
       </div>
     );

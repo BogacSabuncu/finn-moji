@@ -6,7 +6,7 @@ import {
   MDBModalBody,
   MDBModalHeader,
   MDBModalFooter,
-  MDBInput,
+  MDBInput
 } from "mdbreact";
 import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
@@ -37,14 +37,15 @@ class AddExpense extends Component {
   addExpenseHandler = e => {
     e.preventDefault();
     this.setState({
-      ["modal"+14]: !this.state["modal"+14]
+      ["modal" + 14]: !this.state["modal" + 14]
     });
     const { name, value, category } = this.state;
-    API.addExpense({
+    const expenseObj = {
       name,
       value,
       category
-    });
+    };
+    this.context.postExpense(expenseObj);
   };
 
   render() {
@@ -76,7 +77,7 @@ class AddExpense extends Component {
                 placeholder='Ex. Value'
               />
               <select
-                className="browser-default custom-select"
+                className='browser-default custom-select'
                 name='category'
                 onChange={this.changeHandler}
                 placeholder='Ex. Category'
@@ -87,7 +88,7 @@ class AddExpense extends Component {
                 </option>
                 <option value='Housing'>Housing</option>
                 <option value='Healthcare'>Healthcare</option>
-                <option value='food'>Food</option>
+                <option value='Food'>Food</option>
                 <option value='Insurance'>Insurance</option>
                 <option value='Education'>Education</option>
                 <option value='Savings'>Savings</option>

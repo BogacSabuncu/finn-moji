@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./components/LoginPage";
-import UserContext from "./context/UserContext";
+import { Provider as UserProvider } from "./context/UserContext";
 import SingupForm from "./components/SingupForm";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
@@ -14,25 +14,80 @@ import Statistics from "./components/Statistics";
 import FooterPage from "./components/Footer";
 import Logs from "./components/Logs";
 import "./stylesheets/App.css";
+import API from "./utils/API";
 
 class App extends Component {
   state = {
-    user: null
-    
+    user: null,
+    userObj: null
   };
 
   setUser = user => {
     this.setState({ user });
   };
 
+  getUser = () => {
+    API.getUser().then(response => {
+      this.refreshUser(response.data);
+    });
+  };
+
+  refreshUser = userData => {
+    this.setState({ userObj: userData });
+  };
+
+  postExpense = data => {
+    API.addExpense(data).then(response => {
+      this.getUser();
+    });
+  };
+
+  postIncome = data => {
+    API.addIncome(data).then(response => {
+      this.getUser();
+    });
+  };
+
+  deleteIncome = data =>{
+    console.log("data: ", data)
+    API.deleteIncome(data).then(response => {
+      this.getUser();
+    });
+  }
+
+  deleteExpense = data =>{
+    console.log("data: ", data)
+    API.deleteExpense(data).then(response => {
+      this.getUser();
+    });
+  }
+  
+ updateIncome = data =>{
+    console.log("data hello it is data: ", data)
+    API.updateIncome(data).then(response => {
+      this.getUser();
+    });
+  }
+
+  updateExpense = data =>{
+    console.log("data hello it is data: ", data)
+    API.updateExpense(data).then(response => {
+      this.getUser();
+    });
+  }
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      this.getUser();
+    }
+  }
+
   render() {
     const { user } = this.state;
     const setUser = this.setUser;
     return (
       <Router>
-        <>
-        <MDBNavbar color="special-color-dark
-" dark expand="md">
+        <div>
+        <MDBNavbar color="special-color-dark" dark expand="md">
         <MDBNavbarBrand>
         <img
                 alt="Finmoji navbar icon"
@@ -108,51 +163,35 @@ class App extends Component {
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
-              {/* <MDBFormInline waves>
-                <div className="secondary-color-dark">
-                  <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                </div>
-              </MDBFormInline> */}
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-          {/* <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">
-              <img
-                alt="Finmoji navbar icon"
-                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/cat-face-with-wry-smile_1f63c.png"
-                width="50"
-                height="50"
-                className="d-inline-block align-top"
-              />
-              {" Finmoji"}
-            </Navbar.Brand>
-            <Nav className="justify-content-end" activeKey="/">
-              <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/profile">Profile</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/statistics">Statistics</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Navbar> */}
-          <div className="wrapper">
-            <UserContext.Provider value={{ setUser, user }}>
+            <UserProvider
+              value={{
+                setUser,
+                user,
+                userObj: this.state.userObj,
+                postExpense: this.postExpense,
+                postIncome: this.postIncome,
+                deleteIncome: this.deleteIncome,
+                updateIncome: this.updateIncome,
+                deleteExpense: this.deleteExpense,
+                updateExpense: this.updateExpense,
+              }}
+            >
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/login" component={LoginPage} />
-              <Route exact path="/signup" component={SingupForm} />
-              <Route exact path="/" component={LandingPage} />
-              <Route exact path="/statistics" component={Statistics} />
-            </UserContext.Provider>
-            <div className="push" />
-          </div>
+              <Route exact path='/profile' component={Profile} />
+              <Route exact path='/logs' component={Logs} />
+              <Route exact path='/login' component={LoginPage} />
+              <Route exact path='/signup' component={SingupForm} />
+              <Route exact path='/' component={LandingPage} />
+              <Route exact path='/statistics' component={Statistics} />
+            </UserProvider>
+            <div className='push' />
+          {/* </div> */}
           <FooterPage />
-        </>
+        </div> 
       </Router>
     );
   }
