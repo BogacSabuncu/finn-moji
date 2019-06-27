@@ -219,28 +219,35 @@ module.exports = function (app) {
   });
 
   // A GET route for scraping the echoJS website
-  app.get("/scrape", function (req, res) {
+  app.get("/article/scrape", function (req, res) {
     // First, we grab the body of the html with axios
-    axios.get("https://www.thestreet.com/").then(function (response) {
+    axios.get("https://www.thestreet.com/personal-finance").then(function (response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
 
       // Now, we grab every h2 within an article tag, and do the following:
-      $(".media-body").each(function (i, element) {
+      $(".news-list__block").each(function (i, element) {
         // Save an empty result object
         var result = {};
 
         // Add the text and href of every link, and save them as properties of the result object
         result.title = $(this)
+          .children(".news-list__body")
           .children("a")
-          .children(".news-list__headline")
+          .children("h3")
           .text();
         result.body = $(this)
+          .children(".news-list__body")
           .children("p")
           .text();
-        result.link = $(this)
+        result.link = "https://www.thestreet.com" + $(this)
           .children("a")
           .attr("href");
+        result.imgLink = "https:"+$(this)
+          .children("a")
+          .children("picture")
+          .children("img")
+          .attr("src");
 
         // Create a new Article using the `result` object built from scraping
         Article.create(result)
@@ -257,5 +264,15 @@ module.exports = function (app) {
       // Send a message to the client
       res.send("Scrape Complete");
     });
-  }); Ï
+  }); 
+
+  app.delete("/article/clear", function (req, res) {
+
+    Article.deleteMany({})
+      .then(function (result) {
+        res.end("Articles cleared");
+      }).catch(function (err) {
+        res.end(err);
+      })
+  });
 };
