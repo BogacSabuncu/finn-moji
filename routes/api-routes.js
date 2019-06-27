@@ -130,27 +130,53 @@ module.exports = function (app) {
       });
   });
 
-  app.delete("/api/deleteIncome/:id", function (req, res) {
+  app.post("/api/deleteIncome/", function (req, res) {
     // Remove a note using the objectID
-    console.log("Thisisisisisisisisisiis", +req.params);
-    Income.remove(
-      {
-        _id: req.params.id
-      },
-      function (error, removed) {
-        // Log any errors from mongojs
-        if (error) {
-          console.log(error);
-          res.send(error);
-        } else {
-          // Otherwise, send the mongojs response to the browser
-          // This will fire off the success function of the ajax request
-          console.log(removed);
-          res.send(removed);
-        }
-      }
-    );
+    res.json(req.body)
+
+    User.update(
+      { _id: req.body.userId },
+      { $pull: { income: { $in: [req.body.id] } } },
+
+      // function(error, removed) {
+      //   // Log any errors from mongojs
+      //   if (error) {
+      //     console.log(error);
+      //     res.send(error);
+      //   } else {
+      //     // Otherwise, send the mongojs response to the browser
+      //     // This will fire off the success function of the ajax request
+      //     console.log(removed);
+      //     res.send(removed);
+      //   }
+      // }
+    ).then(function (res) {
+      res.end()
+    }).catch(err => {
+      console.log(err.message)
+    })
+
+    res.end()
   });
+
+
+  app.post("/api/deleteExpense/", function (req, res) {
+  
+    res.json(req.body)
+
+    User.update(
+      { _id: req.body.userId },
+      { $pull: { expenses: { $in: [req.body.id] } } },
+      
+    ).then(function (res) {
+      res.end()
+    }).catch(err => {
+      console.log(err.message)
+    })
+
+    res.end()
+  });
+
 
   app.delete("/api/deleteExpenses/:id", function (req, res) {
     // Remove a note using the objectID
@@ -175,47 +201,33 @@ module.exports = function (app) {
   });
 
   app.put("/api/updateIncome/:id", function (req, res) {
-    Income.findByIdAndUpdate(
-      // the id of the item to find
-      req.params.id,
+    console.log("Hello this is params", req.params.id)
+    console.log("Hello this is body ", req.body.nameIncome)
 
-      // the change to be made. Mongoose will smartly combine your existing
-      // document with this change, which allows for partial updates too
-      req.body,
+    Income.update({ "_id": req.body._id},
+      { $set: { "valueIncome": req.body.valueIncome } }
 
-      // an option that asks mongoose to return the updated version
-      // of the document instead of the pre-updated one.
-      { new: true },
-
-      // the callback function
-      (err, results) => {
-        // Handle any possible database errors
-        if (err) return res.status(500).send(err);
-        return res.send(results);
-      }
-    );
+    ).then(function (res) {
+      res.end()
+    }).catch(err => {
+      console.log(err.message)
+    })
+    res.end();
   });
 
-  app.put("/api/updateExpenses/:id", function (req, res) {
-    Expenses.findByIdAndUpdate(
-      // the id of the item to find
-      req.params.id,
+  app.put("/api/updateExpense/:id", function (req, res) {
+    console.log("Hello this is params", req.params.id)
+    console.log("Hello this is body ", req.body.name)
 
-      // the change to be made. Mongoose will smartly combine your existing
-      // document with this change, which allows for partial updates too
-      req.body,
+    Expenses.update({ "_id": req.body._id},
+      { $set: { "value": req.body.value } }
 
-      // an option that asks mongoose to return the updated version
-      // of the document instead of the pre-updated one.
-      { new: true },
-
-      // the callback function
-      (err, results) => {
-        // Handle any possible database errors
-        if (err) return res.status(500).send(err);
-        return res.send(results);
-      }
-    );
+    ).then(function (res) {
+      res.end()
+    }).catch(err => {
+      console.log(err.message)
+    })
+    res.end();
   });
 
   // A GET route for scraping the echoJS website

@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import API from "../utils/API";
 import CardDeck from 'react-bootstrap/CardDeck';
+import UserContext from "../context/UserContext.js";
 import Card from 'react-bootstrap/Card';
 
 class IncomeCard extends Component {
-
+  static contextType = UserContext;
   state = {
     value: ''
   }
@@ -30,12 +31,7 @@ class IncomeCard extends Component {
             </span>
             <input type="text" value={this.state.value} onChange={this.handleChange} name={this.props.valueIncome} id={this.props.id} style={{ width: '5rem', margin: '10px', textAlign: 'center' }} placeholder={this.props.valueIncome} /> dollars
             </Card.Text>
-
-
         </Card>
-
-
-
 
       </>
     )
@@ -46,7 +42,7 @@ class IncomeCard extends Component {
 
 
 class ExpensesCard extends Component {
-
+  static contextType = UserContext;
   state = {
     value: ''
   }
@@ -75,9 +71,6 @@ class ExpensesCard extends Component {
 
         </Card>
 
-
-
-
       </>
     )
   }
@@ -89,7 +82,7 @@ class ExpensesCard extends Component {
 
 
 class Logs extends Component {
-
+  static contextType = UserContext;
   state = {
     name: "",
     value: "",
@@ -97,53 +90,55 @@ class Logs extends Component {
     expenses: [{}]
   }
 
-  componentDidMount = () => {
+  // componentDidMount = () => {
 
-    API.getIncome()
-      .then((response) => {
-        console.log(response.data.income);
+  //   API.getIncome()
+  //     .then((response) => {
+  //       console.log(response.data.income);
 
-        this.setState({ income: response.data.income });
-
-
-        API.getExpenses()
-          .then((response) => {
-            console.log(response.data);
-
-            this.setState({ expenses: response.data.expenses });
+  //       this.setState({ income: response.data.income });
 
 
+  //       API.getExpenses()
+  //         .then((response) => {
+  //           console.log(response.data);
 
-          })
+  //           this.setState({ expenses: response.data.expenses });
 
-      })
 
-      .catch(err => console.log(err));
 
-  };
+  //         })
+
+  //     })
+
+  //     .catch(err => console.log(err));
+
+  // };
 
 
   removeExpenses = id => {
-    API.deleteExpenses(id)
-      .then(() => {
-
-        console.log(id);
-        const expensesNew = this.state.expenses.filter(expensesNewItem => expensesNewItem._id !== id);
-        console.log(expensesNew);
-        this.setState({ expenses: expensesNew });
-      });
+    let userId = localStorage.getItem("userId");
+    console.log("userId: ", userId)
+    let objDel={
+      id: id,
+      userId: userId
+    }
+    console.log("objDel: ", objDel)
+    this.context.deleteExpense(objDel);
   };
 
 
   removeIncome = id => {
-    API.deleteIncome(id)
-      .then(() => {
-
-        console.log(id);
-        const incomeNew = this.state.income.filter(incomItem => incomItem._id !== id);
-        console.log(incomeNew);
-        this.setState({ income: incomeNew });
-      });
+    console.log("id: ", id)
+    
+    let userId = localStorage.getItem("userId");
+    console.log("userId: ", userId)
+    let objDel={
+      id: id,
+      userId: userId
+    }
+    console.log("objDel: ", objDel)
+    this.context.deleteIncome(objDel);
   };
 
   changeHandler = e => {
@@ -162,26 +157,7 @@ class Logs extends Component {
       value: value
     };
     console.log(n);
-    API.updateExpenses(id, n)
-
-      .then((response) => {
-        console.log("hhhh");
-        //  console.log(response.data);
-
-        //this.setState({ income: response.data});
-
-
-        API.getExpenses()
-          .then((response) => {
-            console.log(response.data.expenses);
-
-            this.setState({ expenses: response.data.expenses });
-          });
-
-
-
-
-      })
+    this.context.updateExpense(n);
   };
 
 
@@ -189,41 +165,24 @@ class Logs extends Component {
 
   updateIncome = (id, value, name2) => {
 
-    let n = {
+    let objDel = {
       _id: id,
       nameIncome: name2,
       valueIncome: value
     };
-    console.log(n);
-    API.updateIncome(id, n)
-
-      .then((response) => {
-        console.log("hhhh");
-        //  console.log(response.data);
-
-        //this.setState({ income: response.data});
-
-
-        API.getIncome()
-          .then((response) => {
-            console.log(response.data.income);
-
-            this.setState({ income: response.data.income });
-          });
-
-
-
-
-      })
+    console.log(objDel);
+    console.log("objUpdate: ", objDel)
+    this.context.updateIncome(objDel);
   };
 
   render() {
 
+    const {expenses, income} = this.context.userObj || { expenses: [], income: [] };
     return (
       <>
         <h1>Income</h1>
         <CardDeck>
-          {this.state.income.map(incomeItem => (
+          {income.map(incomeItem => (
             <IncomeCard
               changeHandler={this.changeHandler}
               removeIncome={this.removeIncome}
@@ -237,7 +196,7 @@ class Logs extends Component {
 
         <h1>Expenses</h1>
         <CardDeck>
-          {this.state.expenses.map(expensesItem => (
+          {expenses.map(expensesItem => (
             <ExpensesCard
             id={expensesItem._id}
             updateExpenses={this.updateExpenses}

@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
+// import Auth from "../utils/Auth";
+import API from "../utils/API";
+import Charts from "./Charts";
+import Logs from "./Logs";
+import AddExpense from "./AddExpense";
+import AddIncome from "./AddIncome";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
 import CharacterCard from "./CharacterCard";
 import StatsCard from "./StatsCard";
 import DonutCard from "./DonutCard.js";
@@ -27,6 +33,9 @@ class Profile extends Component {
           <MDBCol>
             <StatsCard />
             <DonutCard />
+          </MDBCol>
+          <MDBCol>
+            <Logs />
           </MDBCol>
         </MDBRow>
         <MDBRow>
