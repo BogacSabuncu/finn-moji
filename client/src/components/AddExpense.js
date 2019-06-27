@@ -85,7 +85,7 @@ class AddExpense extends Component {
               >
                 <option value='Housing'>Housing</option>
                 <option value='Healthcare'>Healthcare</option>
-                <option value='food'>Food</option>
+                <option value='Food'>Food</option>
                 <option value='Insurance'>Insurance</option>
                 <option value='Education'>Education</option>
                 <option value='Savings'>Savings</option>

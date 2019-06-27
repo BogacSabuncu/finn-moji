@@ -49,6 +49,33 @@ class App extends Component {
     });
   };
 
+  deleteIncome = data =>{
+    console.log("data: ", data)
+    API.deleteIncome(data).then(response => {
+      this.getUser();
+    });
+  }
+
+  deleteExpense = data =>{
+    console.log("data: ", data)
+    API.deleteExpense(data).then(response => {
+      this.getUser();
+    });
+  }
+  
+ updateIncome = data =>{
+    console.log("data hello it is data: ", data)
+    API.updateIncome(data).then(response => {
+      this.getUser();
+    });
+  }
+
+  updateExpense = data =>{
+    console.log("data hello it is data: ", data)
+    API.updateExpense(data).then(response => {
+      this.getUser();
+    });
+  }
   componentDidMount() {
     if (localStorage.getItem("token")) {
       this.getUser();
@@ -147,10 +174,16 @@ class App extends Component {
                 user,
                 userObj: this.state.userObj,
                 postExpense: this.postExpense,
-                postIncome: this.postIncome
-              }}>
+                postIncome: this.postIncome,
+                deleteIncome: this.deleteIncome,
+                updateIncome: this.updateIncome,
+                deleteExpense: this.deleteExpense,
+                updateExpense: this.updateExpense,
+              }}
+            >
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}
               <Route exact path='/profile' component={Profile} />
+              <Route exact path='/logs' component={Logs} />
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/signup' component={SingupForm} />
               <Route exact path='/' component={LandingPage} />
