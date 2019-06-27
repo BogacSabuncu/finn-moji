@@ -36,34 +36,34 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <MDBContainer className="container">
+      <MDBContainer className='container'>
         <MDBRow>
           <MDBCol />
-          <MDBCol md="4">
+          <MDBCol md='4'>
             <form onSubmit={this.submitHandler}>
               <MDBInput
-                label="Username"
-                icon="user"
+                label='Username'
+                icon='user'
                 group
-                type="text"
-                name="username"
-                error="Wrong!"
-                success="Welcome Back!"
+                type='text'
+                name='username'
+                error='Wrong!'
+                success='Welcome Back!'
                 value={this.state.username}
                 onChange={this.changeHandler}
                 validate
               />
 
               <MDBInput
-                label="Password"
-                icon="lock"
-                type="password"
-                name="password"
+                label='Password'
+                icon='lock'
+                type='password'
+                name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}
               />
-              <div className="text-center">
-                <MDBBtn variant="success" onClick={this.submitHandler}>
+              <div className='text-center'>
+                <MDBBtn variant='success' onClick={this.submitHandler}>
                   Login
                 </MDBBtn>
               </div>
