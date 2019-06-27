@@ -56,7 +56,7 @@ class AddIncome extends Component {
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
-            Add Income  &#128536;
+            Add Income <span role="img" aria-label="income-icon">&#128536;</span>
           </MDBModalHeader>
           <MDBModalBody>
             <form>

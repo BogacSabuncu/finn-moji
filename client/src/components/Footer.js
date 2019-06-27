@@ -15,7 +15,7 @@ const FooterPage = () => {
         <MDBRow>    
           <MDBCol>
             <h5 id="FooterTitle" className="title">
-              Finmoji - Finance, simplified. &#128176;
+              Finmoji - Finance, simplified. <span role="img" aria-label="finmoji-icon">&#128176;</span>
             </h5>
             <p>
               Securing the bag is hard enough. We're here to make sure you hold
@@ -29,7 +29,7 @@ const FooterPage = () => {
           </MDBCol>
           <MDBCol />
           <MDBCol>
-            <h5 className="title">Resources &#128170;</h5>
+            <h5 className="title">Resources <span role="img" aria-label="resources-icon">&#128170;</span></h5>
             <ul>
               <li className="list-unstyled">
                 <a
@@ -74,7 +74,7 @@ const FooterPage = () => {
             </ul>
           </MDBCol>
           <MDBCol>
-            <h5 className="title">Social &#128526;</h5>
+            <h5 className="title">Social <span role="img" aria-label="social-icon">&#128526;</span></h5>
             <ul>
               <li className="list-unstyled">
                 <a href="#!">
@@ -99,7 +99,7 @@ const FooterPage = () => {
             </ul>
           </MDBCol>
           <MDBCol>
-            <h5 className="title">Team &#128400;</h5>
+            <h5 className="title">Team <span role="img" aria-label="team-icon">&#128400;</span></h5>
             <ul>
               <li className="list-unstyled">
                 <a

@@ -22,11 +22,11 @@ class IncomeCard extends Component {
             {this.props.nameIncome}
 
             <span style={{ float: 'right', cursor: 'pointer' }} onClick={() => this.props.removeIncome(this.props.id)} >
-              &#10062;
+            <span role="img" aria-label="icon">&#10062;</span>
             </span></Card.Header>
 
           <Card.Text><span style={{ float: 'left', cursor: 'pointer', padding: '10px' }} onClick={() => this.props.updateIncome(this.props.id, this.state.value, this.props.nameIncome)} >
-            &#10004;
+          <span role="img" aria-label="icon">&#10004;</span>
             </span>
             <input type="text" value={this.state.value} onChange={this.handleChange} name={this.props.valueIncome} id={this.props.id} style={{ width: '5rem', margin: '10px', textAlign: 'center' }} placeholder={this.props.valueIncome} /> dollars
             </Card.Text>
@@ -63,7 +63,7 @@ class ExpensesCard extends Component {
             {this.props.name}
 
             <span style={{ float: 'right', cursor: 'pointer' }} onClick={() => this.props.removeExpenses(this.props.id)} >
-              &#10062;
+            <span role="img" aria-label="icon">&#10062;</span>
             </span></Card.Header>
 
           <Card.Text><span style={{ float: 'left', cursor: 'pointer', padding: '10px' }} onClick={() => this.props.updateExpenses(this.props.id, this.state.value, this.props.name)} >

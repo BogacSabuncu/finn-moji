@@ -25,7 +25,7 @@ class SignupForm extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
+ 
   submitHandler = e => {
     e.preventDefault();
     const { username, password, gender, age } = this.state;

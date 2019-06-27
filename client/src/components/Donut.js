@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import "../../node_modules/react-vis/dist/style.css";
 import { RadialChart, Hint } from "react-vis";
 import API from "../utils/API";

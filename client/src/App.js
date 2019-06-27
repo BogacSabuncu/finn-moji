@@ -6,7 +6,6 @@ import UserContext from "./context/UserContext";
 import SingupForm from "./components/SingupForm";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
-import { Navbar, Nav } from "react-bootstrap";
 import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
   MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
