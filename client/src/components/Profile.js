@@ -4,6 +4,7 @@ import UserContext from "../context/UserContext";
 // import Auth from "../utils/Auth";
 import API from "../utils/API";
 import Charts from "./Charts";
+import Logs from "./Logs";
 import AddExpense from "./AddExpense";
 import AddIncome from "./AddIncome";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
@@ -30,6 +31,9 @@ class Profile extends Component {
           </MDBCol>
           <MDBCol>
             <StatsCard />
+          </MDBCol>
+          <MDBCol>
+            <Logs />
           </MDBCol>
         </MDBRow>
       </MDBContainer>
