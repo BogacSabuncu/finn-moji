@@ -1,6 +1,6 @@
 #container {
   margin: 45px auto 30px auto;
-
+  
 }
 
 .icondiv {
@@ -58,9 +58,10 @@
 #line {
   margin-top: 45px;
   margin-bottom: 50px;
+
 }
 
-#fang {
+/* #fang {
   color: grey;
 }
 
@@ -78,4 +79,4 @@
 
 #bogac {
   color: seagreen;
-}
+} */
