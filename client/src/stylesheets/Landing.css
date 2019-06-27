@@ -1,6 +1,25 @@
 #container {
-  /* border: 1px solid black; */
-  margin: 30px auto 30px auto;
+  margin: 45px auto 30px auto;
+  
+}
+
+.icondiv {
+  padding: 5px;
+}
+
+.fa-search-dollar {
+  color: green;
+  padding: 10px 0px;
+}
+
+.fa-hand-holding-usd {
+  color: blue;
+  padding: 10px 0px;
+}
+
+.fa-coins {
+  color: gold;
+  padding: 10px 0px;
 }
 
 
@@ -19,26 +38,30 @@
   }
 }
 
-#quote {
-  font: bold 100% Consolas, Monaco, monospace;
-  border-right: .1em solid black;
-  width: 16.5em;
-  width: 83ch;
-  margin: 2em 1em;
-  white-space: nowrap;
-  overflow: hidden;
-  position: static;
-  float: left;
-  word-wrap: break-word;
-  -webkit-animation: typing 7s steps(83, end),
-    blink-caret .5s step-end infinite alternate;
+.quoteBox {
+  height: 200px;
+
 }
 
-/* #app-info {
-    padding-right: 10px;
-} */
+#quoteText {
+  text-shadow: 2px 2px grey;
+}
 
-#fang {
+.finnSteps {
+ padding: 15px;
+}
+
+.finnFaces {
+  padding-bottom: 15px;
+}
+
+#line {
+  margin-top: 45px;
+  margin-bottom: 50px;
+
+}
+
+/* #fang {
   color: grey;
 }
 
@@ -56,4 +79,4 @@
 
 #bogac {
   color: seagreen;
-}
+} */

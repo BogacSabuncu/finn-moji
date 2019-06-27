@@ -3,7 +3,9 @@ const Expenses = require("../models/Expenses");
 const Income = require("../models/Income");
 const jwt = require("jsonwebtoken");
 const authWare = require("../middleware/authware");
-
+var axios = require("axios");
+var cheerio = require("cheerio");
+const Article = require("../models/Article.js");
 
 module.exports = function (app) {
   app.post("/api/signup", function (req, res) {
@@ -116,7 +118,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/getExpenses/:id", authWare, function (req, res) {
-    User.findOne({ _id: req.params.id })
+    User.findOne({ _id: req.params.id }, "-password")
       .populate("expenses")
       .then(function (result) {
         console.log("expense", result);
@@ -226,5 +228,76 @@ module.exports = function (app) {
       console.log(err.message)
     })
     res.end();
+  });
+
+  // A GET route for scraping the echoJS website
+  app.get("/article/scrape", function (req, res) {
+    // First, we grab the body of the html with axios
+    axios.get("https://www.thestreet.com/personal-finance").then(function (response) {
+      // Then, we load that into cheerio and save it to $ for a shorthand selector
+      var $ = cheerio.load(response.data);
+
+      // Now, we grab every h2 within an article tag, and do the following:
+      $(".news-list__block").each(function (i, element) {
+        // Save an empty result object
+        var result = {};
+
+        // Add the text and href of every link, and save them as properties of the result object
+        result.title = $(this)
+          .children(".news-list__body")
+          .children("a")
+          .children("h3")
+          .text();
+        result.body = $(this)
+          .children(".news-list__body")
+          .children("p")
+          .text();
+        result.link = "https://www.thestreet.com" + $(this)
+          .children("a")
+          .attr("href");
+        result.imgLink = "https:"+$(this)
+          .children("a")
+          .children("picture")
+          .children("img")
+          .attr("src");
+
+        // Create a new Article using the `result` object built from scraping
+        Article.create(result)
+          .then(function (dbArticle) {
+            // View the added result in the console
+            console.log(dbArticle);
+          })
+          .catch(function (err) {
+            // If an error occurred, log it
+            console.log(err);
+          });
+      });
+
+      // Send a message to the client
+      res.send("Scrape Complete");
+    });
+  }); 
+
+  app.delete("/article/clear", function (req, res) {
+
+    Article.deleteMany({})
+      .then(function (result) {
+        res.end("Articles cleared");
+      }).catch(function (err) {
+        res.end(err);
+      })
+  });
+
+  app.get("/article/all", function (req, res) {
+    // Grab every document in the Articles collection
+    Article.find({})
+      .then(function (dbArticle) {
+        // If we were able to successfully find Articles, send them back to the client
+        res.json(dbArticle);
+      })
+      .catch(function (err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
   });
 };

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-// import Auth from "../utils/Auth";
 import API from "../utils/API";
 import { Container, Row, Col } from "react-bootstrap";
 import { MDBInput, MDBBtn } from "mdbreact";
@@ -18,6 +17,10 @@ class SignupForm extends Component {
     expenses: ""
   };
 
+  redirectToTarget = () => {
+    this.props.history.push("/profile");
+  }
+
   changeHandler = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -32,6 +35,7 @@ class SignupForm extends Component {
       gender,
       age
     });
+    this.redirectToTarget();
   };
 
   render() {
@@ -126,7 +130,7 @@ class SignupForm extends Component {
               <div className="text-center">
                 <Fragment>
                   <MDBBtn
-                    href="/login"
+                    href="/profile"
                     size="lg"
                     gradient="blue"
                     // type="submit"

@@ -1,77 +1,82 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import '../../node_modules/react-vis/dist/style.css';
-import { RadialChart, Hint } from 'react-vis';
+import UserContext from "../context/UserContext.js";
+import "../../node_modules/react-vis/dist/style.css";
+import { RadialChart, Hint } from "react-vis";
 import API from "../utils/API";
 import { set } from "mongoose";
 
-export default class SimpleRadialChart extends Component {
-	state = {
-		value: false,
-		expenses: []
-	};
+export default class DonutChart extends Component {
+  static contextType = UserContext;
+  state = {
+    value: false
+  };
 
-	componentDidMount = () => {
-		API.getExpenses().then((response) => {
-			this.setState({ expenses: response.data.expenses });
-			this.calculate_theta();
-			console.log(this.state.expenses);
-		});
+  calculate_theta = expenses => {
+    let data = [];
+    expenses.forEach(expense => {
+      let expenseObj = {
+        label: expense.name,
+        subLabel: expense.category,
+        theta: expense.value
+      };
 
-	};
+      data.push(expenseObj);
+    });
+    return data;
+  };
 
-	calculate_theta = () => {
-		let data = [];
-		this.state.expenses.forEach(expense => {
-			let expenseObj = {
-				label: expense.name,
-				subLabel: expense.category,
-				theta: expense.value
-			}
+  setValue = v => {
+    let value = {
+      Name: v.label,
+      Category: v.subLabel,
+      Amount: v.theta,
+      x: v.x,
+      y: v.y
+    };
+    this.setState({ value: value });
+  };
 
-			data.push(expenseObj);
-		});
-		return data;
-	};
+  render() {
+    const { value } = this.state;
+    const { expenses } = this.context.userObj || { expenses: [] };
+    let graph_data = this.calculate_theta(expenses);
 
-	setValue = (v) => {
-		console.log(v);
-
-		let value = {
-			Name: v.label,
-			Category: v.subLabel,
-			Amount: v.theta,
-			x: v.x,
-			y: v.y
-		}
-		this.setState({ value: value })
-	}
-
-	render() {
-		const { value } = this.state;
-		let graph_data = this.calculate_theta();
-		return (
-			<RadialChart
-				className={'donut-chart-expenses'}
-				innerRadius={100}
-				radius={140}
-				getAngle={d => d.theta}
-				data={graph_data}
-				onValueMouseOver={v => this.setValue(v)}
-				onSeriesMouseOut={v => this.setState({ value: false })}
-				width={300}
-				height={300}
-				padAngle={0.04}
-				showLabels={false}
-			>
-				{value !== false && <Hint value={value} >
-					<div style={{ background: "#365cd3", color:"#fff", borderRadius:"0.5em", padding:"0.5em", textAlign:"center" }}>
-						<h4>{value.Amount+"$"}</h4>
-						<h5>{value.Name}</h5>
-						<h6>{value.Category}</h6>
-					</div>
-				</Hint>}
-			</RadialChart>
-		);
-	}
+    return (
+      <div id='donut'>
+        <RadialChart
+          className={"donut-chart-expenses"}
+          innerRadius={100}
+          radius={140}
+          getAngle={d => d.theta}
+          data={graph_data}
+          onValueMouseOver={v => this.setValue(v)}
+          onSeriesMouseOut={v => this.setState({ value: false })}
+          width={300}
+          height={300}
+          padAngle={0.04}
+          showLabels={false}
+        >
+          {value !== false && (
+            <Hint value={value}>
+              <div
+                style={{
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  background: "#365cd3",
+                  color: "#fff",
+                  borderRadius: "0.5em",
+                  padding: "0.5em",
+                  textAlign: "center"
+                }}
+              >
+                <h4>{"$"+value.Amount}</h4>
+                <h5>{value.Name}</h5>
+                <h6>{value.Category}</h6>
+              </div>
+            </Hint>
+          )}
+        </RadialChart>
+      </div>
+    );
+  }
 }

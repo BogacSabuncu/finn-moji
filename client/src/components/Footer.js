@@ -7,7 +7,8 @@ const FooterPage = () => {
     // <div id="footerContainer" className="footer">
     <MDBFooter
       id="footer"
-      color="elegant-color"
+      color="special-color-dark
+      "
       className="font-small pt-4 mt-4"
     >
       <MDBContainer fluid className="text-center text-md-left">
@@ -63,11 +64,11 @@ const FooterPage = () => {
               <li className="list-unstyled">
                 <a
                   id="learnvest"
-                  href="https://www.learnvest.com/knowledge-center/"
+                  href="https://www.reddit.com/r/beermoney/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  4. Learnvest - Investment 101{" "}
+                  4. Beermoney - Earn extra income{" "}
                 </a>
               </li>
             </ul>

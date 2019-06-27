@@ -1,39 +1,39 @@
 #heart {
-    color: red;
+  color: red;
 }
 
 #footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  /* position: sticky; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 #footerContainer {
-display: flex;
-flex-direction: column;
-min-height: 70vh;
-min-height: -webkit-calc(100% - 186px);
-min-height: -moz-calc(100% - 186px);
-min-height: calc(100% - 186px);
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  min-height: -webkit-calc(100% - 186px);
+  min-height: -moz-calc(100% - 186px);
+  min-height: calc(100% - 186px);
 }
 
-#FooterTitle {
-    color: green;
+/* #FooterTitle {
+  color: green;
 }
 
 #robinhood {
-    color: green;
+  color: green;
 }
 
 #learnvest {
-    color: burlywood;
+  color: burlywood;
 }
 
 #simpledollar {
-    color: orange;
+  color: orange;
 }
 
 #stackingbenjamins {
-    color: orchid;
-}
+  color: orchid;
+} */
