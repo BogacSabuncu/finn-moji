@@ -7,6 +7,10 @@ import SingupForm from "./components/SingupForm";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 import { Navbar, Nav } from "react-bootstrap";
+import {
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+  } from "mdbreact";
 import Statistics from "./components/Statistics";
 import FooterPage from "./components/Footer";
 import Logs from "./components/Logs";
@@ -28,7 +32,93 @@ class App extends Component {
     return (
       <Router>
         <>
-          <Navbar bg="dark" variant="dark">
+        <MDBNavbar color="special-color-dark
+" dark expand="md">
+        <MDBNavbarBrand>
+        <img
+                alt="Finmoji navbar icon"
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/cat-face-with-wry-smile_1f63c.png"
+                width="50"
+                height="50"
+                className="d-inline-block align-top"
+              />
+
+          <strong className="white-text"> &nbsp; FinMoji</strong>
+        </MDBNavbarBrand>
+        {/* <MDBNavbarToggler onClick={this.toggleCollapse} /> */}
+        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+          <MDBNavbarNav left>
+            <MDBNavItem>
+              <MDBNavLink to="/">Home</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/profile">Profile</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="/statistics">Statistics</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBDropdown>
+                <MDBDropdownToggle nav caret>
+                  <span className="mr-2">Resources</span>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="robinhood"
+                  href="https://robinhood.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                Robinhood - Invest Commission-Free{" "}
+                </a>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="simpledollar"
+                  href="https://www.thesimpledollar.com/blog-overview/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                 Simple Dollar - Financial Blog{" "}
+                </a>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="stackingbenjamins"
+                  href="https://www.stackingbenjamins.com/about/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Stacking Benjamins - Finance Podcast
+                </a>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem href="#!">
+                  <a
+                  id="beermoney"
+                  href="https://www.reddit.com/r/beermoney/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                 Beermoney - Earn Extra Income{" "}
+                </a>
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+          </MDBNavbarNav>
+          <MDBNavbarNav right>
+            <MDBNavItem>
+              {/* <MDBFormInline waves>
+                <div className="secondary-color-dark">
+                  <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                </div>
+              </MDBFormInline> */}
+            </MDBNavItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBNavbar>
+          {/* <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="/">
               <img
                 alt="Finmoji navbar icon"
@@ -50,7 +140,7 @@ class App extends Component {
                 <Nav.Link href="/statistics">Statistics</Nav.Link>
               </Nav.Item>
             </Nav>
-          </Navbar>
+          </Navbar> */}
           <div className="wrapper">
             <UserContext.Provider value={{ setUser, user }}>
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}

@@ -125,10 +125,10 @@ class LandingPage extends Component {
           <Col>
             <div className="text-center">
               <Fragment>
-                <MDBBtn href="/login" size="lg" gradient="purple">
+                <MDBBtn href="/login" size="lg" className="sunny-morning-gradient">
                   Log In
                 </MDBBtn>
-                <MDBBtn href="/signup" size="lg" gradient="purple">
+                <MDBBtn href="/signup" size="lg" className="sunny-morning-gradient">
                   Sign Up
                 </MDBBtn>
               </Fragment>
