@@ -17,6 +17,7 @@ class App extends Component {
   state = {
     user: null,
     userObj: null
+    // charStatus: "neutral"
   };
 
   setUser = user => {
@@ -31,6 +32,7 @@ class App extends Component {
 
   refreshUser = userData => {
     this.setState({ userObj: userData });
+    this.getCharStatus();
   };
 
   postExpense = data => {
@@ -50,6 +52,88 @@ class App extends Component {
       this.getUser();
     }
   }
+
+  getCharStatus = () => {
+    // console.log("userObj in char card", this.context.userObj);
+    let characterStatus;
+    switch (characterStatus) {
+      case "happy":
+        console.log("happy");
+        break;
+      case "neutral":
+        console.log("neutral");
+        break;
+      case "sad":
+        console.log("sad");
+        break;
+      case "very sad":
+        console.log("very sad");
+        break;
+      case "dead":
+        console.log("dead");
+        break;
+      default:
+        console.log("default");
+    }
+  };
+
+  calculateChart = (expenses, income) => {
+    let needs = 0;
+    let wants = 0;
+    let savings = 0;
+    let totalIncome = 0;
+
+    expenses.forEach(expense => {
+      const needsCategories = ["Housing", "Healthcare", "Food", "Insurance"];
+      const savingsCategories = ["Savings"];
+      if (needsCategories.includes(expense.category)) {
+        needs += expense.value;
+      } else if (savingsCategories.includes(expense.category)) {
+        savings += expense.value;
+      } else {
+        wants += expense.value;
+      }
+    });
+
+    income.forEach(element => {
+      totalIncome += element.valueIncome;
+    });
+
+    console.log("needs", needs);
+    console.log("wants ", wants);
+    console.log("savings ", savings);
+
+    needs = Math.floor((needs * 100) / totalIncome);
+    wants = Math.floor((wants * 100) / totalIncome);
+    savings = Math.floor((savings * 100) / totalIncome);
+    console.log("after percent conversion");
+    console.log("needs", needs);
+    console.log("wants ", wants);
+    console.log("savings ", savings);
+
+    let userGraphData = [
+      { x: "Needs", y: `${needs}` },
+      { x: "Wants", y: `${wants}` },
+      { x: "Savings", y: `${savings}` }
+    ];
+
+    // for character state
+
+    if (wants < 30) {
+      // return this.setState({ charStatus: "happy" });
+    }
+    if (wants < 35 && wants >= 30) {
+      // return (charStatus = "neutral");
+    }
+    if (wants < 45 && wants >= 35) {
+      // return (charStatus = "sad");
+    }
+    if (wants >= 45) {
+      // return (charStatus = "very sad");
+    }
+    // console.log("charStatus", charStatus, "wants", wants);
+    return userGraphData;
+  };
 
   render() {
     const { user } = this.state;
@@ -87,7 +171,8 @@ class App extends Component {
                 user,
                 userObj: this.state.userObj,
                 postExpense: this.postExpense,
-                postIncome: this.postIncome
+                postIncome: this.postIncome,
+                calculateChart: this.calculateChart
               }}
             >
               {/* <ProtectedRoute exact path="/profile" component={Profile} /> */}

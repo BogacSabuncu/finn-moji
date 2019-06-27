@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   MDBBtnGroup,
   MDBRow,
@@ -11,38 +11,45 @@ import {
   MDBCardText,
   MDBCol
 } from "mdbreact";
+import UserContext from "../context/UserContext";
 import AddExpense from "./AddExpense";
 import AddIncome from "./AddIncome";
 import "../stylesheets/CharacterCard.css";
 
-const CharacterCard = () => {
-  return (
-    <MDBContainer>
-      <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
-        <MDBCardHeader color="purple lighten-1">
-          Finn is feeling...
-        </MDBCardHeader>
-        <MDBCardBody>
-          <MDBCardTitle />
-          <MDBContainer className="align-center">
-            <MDBCardImage
-              id="avatar"
-              className="img-fluid"
-              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png"
-            />
-          </MDBContainer>
-          <MDBCardText />
-          <MDBRow>
-            <MDBCol md="12" className="text-center">
-              <MDBBtnGroup>
-                <AddExpense /> <AddIncome />
-              </MDBBtnGroup>
-            </MDBCol>
-          </MDBRow>
-        </MDBCardBody>
-      </MDBCard>
-    </MDBContainer>
-  );
-};
+class CharacterCard extends Component {
+  static contextType = UserContext;
+
+  
+
+  render() {
+    return (
+      <MDBContainer>
+        <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
+          <MDBCardHeader color='purple lighten-1'>
+            Finn is feeling...
+          </MDBCardHeader>
+          <MDBCardBody>
+            <MDBCardTitle />
+            <MDBContainer className='align-center'>
+              <MDBCardImage
+                id='avatar'
+                className='img-fluid'
+                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png'
+              />
+            </MDBContainer>
+            <MDBCardText />
+            <MDBRow>
+              <MDBCol md='12' className='text-center'>
+                <MDBBtnGroup>
+                  <AddExpense /> <AddIncome />
+                </MDBBtnGroup>
+              </MDBCol>
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBContainer>
+    );
+  }
+}
 
 export default CharacterCard;

@@ -35,7 +35,7 @@ export default class DonutChart extends Component {
   };
 
   setValue = v => {
-    console.log(v);
+    // console.log(v);
 
     let value = {
       Name: v.label,
@@ -80,7 +80,7 @@ export default class DonutChart extends Component {
                   textAlign: "center"
                 }}
               >
-                <h4>{"$"+value.Amount}</h4>
+                <h4>{"$" + value.Amount}</h4>
                 <h5>{value.Name}</h5>
                 <h6>{value.Category}</h6>
               </div>

@@ -80,12 +80,14 @@ class AddExpense extends Component {
                 className='browser-default custom-select'
                 name='category'
                 onChange={this.changeHandler}
-                placeholder='Ex. Category'
                 value={this.state.category}
               >
+                <option value='' disabled selected>
+                  Choose a Category
+                </option>
                 <option value='Housing'>Housing</option>
                 <option value='Healthcare'>Healthcare</option>
-                <option value='food'>Food</option>
+                <option value='Food'>Food</option>
                 <option value='Insurance'>Insurance</option>
                 <option value='Education'>Education</option>
                 <option value='Savings'>Savings</option>
