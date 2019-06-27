@@ -132,8 +132,7 @@ class SignupForm extends Component {
                   <MDBBtn
                     href="/profile"
                     size="lg"
-                    gradient="blue"
-                    // type="submit"
+                    className="sunny-morning-gradient"
                     onClick={this.submitHandler}
                   >
                     Create Your Account!

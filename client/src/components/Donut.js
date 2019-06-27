@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-=======
 import UserContext from "../context/UserContext.js";
->>>>>>> b90dd4aa699753a825609837a423b48ed8dc98aa
 import "../../node_modules/react-vis/dist/style.css";
 import { RadialChart, Hint } from "react-vis";
 import API from "../utils/API";
