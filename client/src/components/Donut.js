@@ -8,17 +8,8 @@ import { set } from "mongoose";
 export default class DonutChart extends Component {
   static contextType = UserContext;
   state = {
-    value: false,
-    expenses: []
+    value: false
   };
-
-  // componentDidMount = () => {
-  //   API.getExpenses().then(response => {
-  //     this.setState({ expenses: response.data.expenses });
-  //     this.calculate_theta();
-  //     console.log(this.state.expenses);
-  //   });
-  // };
 
   calculate_theta = expenses => {
     let data = [];
