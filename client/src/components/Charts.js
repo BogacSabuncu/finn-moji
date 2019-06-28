@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import "../../node_modules/react-vis/dist/style.css";
-import API from "../utils/API";
 import {
   XYPlot,
   XAxis,
@@ -21,7 +19,7 @@ class Charts extends Component {
       { x: "Savings", y: 20 }
     ];
     
-    const { needs, wants, savings } = this.context.user ? this.context.user.categories : {};
+    const { needs = 0, wants = 0, savings = 0 } = this.context.user ? this.context.user.categories : {};
     const userGraphData = [
       { x: "Needs", y: `${needs}` },
       { x: "Wants", y: `${wants}` },
