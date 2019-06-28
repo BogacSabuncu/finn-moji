@@ -6,10 +6,7 @@ import {
   XYPlot,
   XAxis,
   YAxis,
-  // VerticalGridLines,
-  // HorizontalGridLines,
   VerticalBarSeries,
-  // VerticalBarSeriesCanvas,
   DiscreteColorLegend
 } from "react-vis";
 import UserContext from "../context/UserContext.js";
@@ -65,4 +62,4 @@ class Charts extends Component {
   }
 }
 
-export default withRouter(Charts);
+export default Charts;

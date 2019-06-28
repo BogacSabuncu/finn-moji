@@ -7,7 +7,7 @@ module.exports = function(req, res, next) {
     const { authorization } = req.headers;
     if (!authorization) throw new Error();
     const token = authorization.replace("Bearer ", "");
-    const decoded = jwt.verify(token, "superSecretKey");
+    const decoded = jwt.verify(token, process.env.MY_SECRET);
     // console.log("token/decoded", token, decoded);
 
     User.findOne({ _id: decoded.data }).then(function(dbUser) {

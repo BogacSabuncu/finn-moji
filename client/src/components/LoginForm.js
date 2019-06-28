@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import Auth from "../utils/Auth";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import "../stylesheets/LoginForm.css";
 
 class LoginForm extends Component {
   static contextType = UserContext;
@@ -14,7 +15,7 @@ class LoginForm extends Component {
 
   redirectToTarget = () => {
     this.props.history.push("/profile");
-  }
+  };
 
   changeHandler = e => {
     const { name, value } = e.target;
@@ -40,6 +41,15 @@ class LoginForm extends Component {
         <MDBRow>
           <MDBCol />
           <MDBCol md='4'>
+            <div className='text-center'>
+              <img
+                className='img-fluid'
+                alt='login icon'
+                src='https://images.vexels.com/media/users/3/143349/isolated/preview/d4a9daa55995698be51b9abc7029bd3d-color-maneki-neko-cat-by-vexels.png'
+              />
+            </div>
+            <h3 id='welcomeText'>Welcome back!</h3>
+            <hr />
             <form onSubmit={this.submitHandler}>
               <MDBInput
                 label='Username'
@@ -63,7 +73,10 @@ class LoginForm extends Component {
                 onChange={this.changeHandler}
               />
               <div className='text-center'>
-                <MDBBtn variant='success' onClick={this.submitHandler}>
+                <MDBBtn
+                  className='sunny-morning-gradient'
+                  onClick={this.submitHandler}
+                >
                   Login
                 </MDBBtn>
               </div>

@@ -25,7 +25,7 @@ class SignupForm extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
+ 
   submitHandler = e => {
     e.preventDefault();
     const { username, password, gender, age } = this.state;
@@ -132,8 +132,7 @@ class SignupForm extends Component {
                   <MDBBtn
                     href="/profile"
                     size="lg"
-                    gradient="blue"
-                    // type="submit"
+                    className="sunny-morning-gradient"
                     onClick={this.submitHandler}
                   >
                     Create Your Account!

@@ -8,11 +8,8 @@ import {
   MDBModalFooter,
   MDBInput
 } from "mdbreact";
-import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-// import Auth from "../utils/Auth";
-import API from "../utils/API";
-import "../stylesheets/AddIncome.css"
+import "../stylesheets/AddIncome.css";
 
 class AddIncome extends Component {
   static contextType = UserContext;
@@ -53,12 +50,15 @@ class AddIncome extends Component {
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
-            Add Income  &#128536;
+            Add Income{" "}
+            <span role='img' aria-label='income-icon'>
+              &#128536;
+            </span>
           </MDBModalHeader>
           <MDBModalBody>
             <form>
               <MDBInput
-                label="Income Type"
+                label='Income Type'
                 type='text'
                 name='nameIncome'
                 value={this.state.nameIncome}
@@ -93,4 +93,4 @@ class AddIncome extends Component {
   }
 }
 
-export default withRouter(AddIncome);
+export default AddIncome;

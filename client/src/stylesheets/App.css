@@ -4,15 +4,16 @@ body {
   margin: 0;
 }
 
-.wrapper {
-  min-height: 67vh;
+/* .wrapper { */
+  /* min-height: 67vh; */
 
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -50px;
-}
+  /* margin-bottom: -50px; */
+/* } */
 
 .footer,
 .push {
   height: 50px;
 }
+

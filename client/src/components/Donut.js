@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import UserContext from "../context/UserContext.js";
 import "../../node_modules/react-vis/dist/style.css";
 import { RadialChart, Hint } from "react-vis";
-import API from "../utils/API";
-import { set } from "mongoose";
 
 export default class DonutChart extends Component {
   static contextType = UserContext;

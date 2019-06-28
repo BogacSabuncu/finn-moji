@@ -8,10 +8,7 @@ import {
   MDBModalFooter,
   MDBInput
 } from "mdbreact";
-import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-// import Auth from "../utils/Auth";
-import API from "../utils/API";
 
 class AddExpense extends Component {
   static contextType = UserContext;
@@ -56,7 +53,10 @@ class AddExpense extends Component {
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
           <MDBModalHeader toggle={this.toggle(14)}>
-            Add An Expense &#128557;
+            Add An Expense{" "}
+            <span role='img' aria-label='expense-icon'>
+              &#128557;
+            </span>
           </MDBModalHeader>
           <MDBModalBody>
             <form>
@@ -82,9 +82,7 @@ class AddExpense extends Component {
                 onChange={this.changeHandler}
                 value={this.state.category}
               >
-                <option value='' disabled selected>
-                  Choose a Category
-                </option>
+                <option defaultValue=''>Choose a Category</option>
                 <option value='Housing'>Housing</option>
                 <option value='Healthcare'>Healthcare</option>
                 <option value='Food'>Food</option>
@@ -116,4 +114,4 @@ class AddExpense extends Component {
   }
 }
 
-export default withRouter(AddExpense);
+export default AddExpense;
