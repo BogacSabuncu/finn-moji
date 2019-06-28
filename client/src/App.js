@@ -20,7 +20,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem
 } from "mdbreact";
-import Statistics from "./components/Statistics";
+import News from "./components/News";
 import FooterPage from "./components/Footer";
 import "./stylesheets/App.css";
 import API from "./utils/API";
@@ -134,7 +134,7 @@ class App extends Component {
                   <MDBNavLink to='/profile'>Profile</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink to='/statistics'>Statistics</MDBNavLink>
+                  <MDBNavLink to='/news'>News</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                   <MDBDropdown>
@@ -212,7 +212,7 @@ class App extends Component {
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={SingupForm} />
             <Route exact path='/' component={LandingPage} />
-            <Route exact path='/statistics' component={Statistics} />
+            <Route exact path='/news' component={News} />
           </UserProvider>
           <div className='push' />
           {/* </div> */}
