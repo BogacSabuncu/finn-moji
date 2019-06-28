@@ -26,15 +26,9 @@ class Charts extends Component {
       { x: "Savings", y: `${savings}` }
     ];
 
-    return (
-      <div className='App'>
-        <XYPlot
-          margin={{ bottom: 70 }}
-          xType='ordinal'
-          height={300}
-          width={400}
-          yDomain={[0, 100]}
-        >
+    return (      
+      <div className="App">
+        <XYPlot margin={{ bottom: 70 }} xType="ordinal" height={300} width={800} yDomain={[0, 100]}>
           <DiscreteColorLegend
             style={{ position: "absolute", left: "300px", top: "10px" }}
             orientation='vertical'
