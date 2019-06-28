@@ -17,7 +17,7 @@ const DonutCard = () => {
         <MDBCardBody style={{ marginLeft: "auto", marginRight: "auto" }}>
           <MDBCardTitle />
           <DonutChart />
-          <UserConsumer>
+          {/* <UserConsumer>
             {context => (
               <div>
                 {context.userObj && context.userObj.expenses.reduce((sum, expense) => {
@@ -25,7 +25,7 @@ const DonutCard = () => {
                 }, 0)}
               </div>
             )}
-          </UserConsumer>
+          </UserConsumer> */}
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>

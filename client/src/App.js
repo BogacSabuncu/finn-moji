@@ -29,7 +29,7 @@ class App extends Component {
   state = {
     user: null,
     userObj: null,
-    charStatus: "happy"
+    charStatus: "neutral"
   };
 
   setUser = user => {
@@ -105,11 +105,13 @@ class App extends Component {
       charStatus = "neutral";
     } else if (wants < 45 && wants >= 35) {
       charStatus = "sad";
-    } else if (wants >= 45) {
+    } else if (wants >= 45 && wants <85) {
       charStatus = "very sad";
+    }else if(wants >= 85){
+      charStatus = "dead";
     }
-    console.log(wants);
-    console.log(charStatus);
+    // console.log(wants);
+    // console.log(charStatus);
     return charStatus;
   };
 
@@ -194,13 +196,15 @@ class App extends Component {
             value={{
               setUser,
               user,
+              charStatus: this.state.charStatus,
               userObj: this.state.userObj,
               postExpense: this.postExpense,
               postIncome: this.postIncome,
               deleteIncome: this.deleteIncome,
               updateIncome: this.updateIncome,
               deleteExpense: this.deleteExpense,
-              updateExpense: this.updateExpense
+              updateExpense: this.updateExpense,
+              getCharStatus: this.getCharStatus
             }}
           >
             <ProtectedRoute exact path='/profile' component={Profile} />

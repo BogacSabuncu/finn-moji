@@ -22,6 +22,23 @@ class CharacterCard extends Component {
   
 
   render() {
+    let charImageUrl = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png";
+
+    let charStatus = this.context.charStatus || "screw this cat"
+    console.log(charStatus);
+
+    if(charStatus === "happy"){
+      charImageUrl = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png";
+    }else if(charStatus === "neutral"){
+      charImageUrl = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/grinning-cat-face-with-smiling-eyes_1f638.png";
+    }else if(charStatus === "sad"){
+      charImageUrl = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/pouting-cat-face_1f63e.png";
+    }else if(charStatus === "very sad"){
+      charImageUrl = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/crying-cat-face_1f63f.png";
+    }else{
+      charImageUrl = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/weary-cat-face_1f640.png";
+    }
+
     return (
       <MDBContainer>
         <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
@@ -34,7 +51,7 @@ class CharacterCard extends Component {
               <MDBCardImage
                 id='avatar'
                 className='img-fluid'
-                src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png'
+                src={charImageUrl}
               />
             </MDBContainer>
             <MDBCardText />

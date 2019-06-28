@@ -71,6 +71,7 @@ export default class DonutChart extends Component {
                   textAlign: "center"
                 }}
               >
+                
                 <h4>{"$" + value.Amount}</h4>
                 <h5>{value.Name}</h5>
                 <h6>{value.Category}</h6>
