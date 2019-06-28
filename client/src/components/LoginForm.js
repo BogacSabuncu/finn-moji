@@ -37,44 +37,44 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <MDBContainer className="container">
+      <MDBContainer className='container'>
         <MDBRow>
           <MDBCol />
-          <MDBCol md="4">
-            <div className="text-center">
+          <MDBCol md='4'>
+            <div className='text-center'>
               <img
-                className="img-fluid"
-                alt="login icon"
-                src="https://images.vexels.com/media/users/3/143349/isolated/preview/d4a9daa55995698be51b9abc7029bd3d-color-maneki-neko-cat-by-vexels.png"
+                className='img-fluid'
+                alt='login icon'
+                src='https://images.vexels.com/media/users/3/143349/isolated/preview/d4a9daa55995698be51b9abc7029bd3d-color-maneki-neko-cat-by-vexels.png'
               />
             </div>
-            <h3 id="welcomeText">Welcome back!</h3>
-            <hr/>
+            <h3 id='welcomeText'>Welcome back!</h3>
+            <hr />
             <form onSubmit={this.submitHandler}>
               <MDBInput
-                label="Username"
-                icon="user"
+                label='Username'
+                icon='user'
                 group
-                type="text"
-                name="username"
-                error="Wrong!"
-                success="Welcome Back!"
+                type='text'
+                name='username'
+                error='Wrong!'
+                success='Welcome Back!'
                 value={this.state.username}
                 onChange={this.changeHandler}
                 validate
               />
 
               <MDBInput
-                label="Password"
-                icon="lock"
-                type="password"
-                name="password"
+                label='Password'
+                icon='lock'
+                type='password'
+                name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}
               />
-              <div className="text-center">
+              <div className='text-center'>
                 <MDBBtn
-                  className="sunny-morning-gradient"
+                  className='sunny-morning-gradient'
                   onClick={this.submitHandler}
                 >
                   Login
