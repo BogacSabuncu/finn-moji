@@ -23,12 +23,13 @@ class Charts extends Component {
       { x: "Wants", y: 30 },
       { x: "Savings", y: 20 }
     ];
-
-    const { expenses, income } = this.context.userObj || {
-      expenses: [],
-      income: []
-    };
-    const userGraphData = this.context.calculateChart(expenses, income);
+    
+    const { needs, wants, savings } = this.context.user ? this.context.user.categories : {};
+    const userGraphData = [
+      { x: "Needs", y: `${needs}` },
+      { x: "Wants", y: `${wants}` },
+      { x: "Savings", y: `${savings}` }
+    ];
 
     return (
       <div className='App'>

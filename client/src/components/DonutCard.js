@@ -10,6 +10,8 @@ import {
 import DonutChart from "./Donut.js";
 
 const DonutCard = () => {
+  //const { expenses } = this.context.userObj || { expenses: [] };
+
   return (
     <MDBContainer>
       <MDBCard style={{ width: "auto", marginTop: "1rem" }}>

@@ -8,11 +8,12 @@ import { set } from "mongoose";
 export default class DonutChart extends Component {
   static contextType = UserContext;
   state = {
-    value: false
+    value: false,
   };
 
   calculate_theta = expenses => {
     let data = [];
+
     expenses.forEach(expense => {
       let expenseObj = {
         label: expense.name,
@@ -22,6 +23,7 @@ export default class DonutChart extends Component {
 
       data.push(expenseObj);
     });
+
     return data;
   };
 

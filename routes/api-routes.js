@@ -7,6 +7,35 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 const Article = require("../models/Article.js");
 
+calculateChart = (expenses, income) => {
+  let needs = 0;
+  let wants = 0;
+  let savings = 0;
+  let totalIncome = 0;
+
+  expenses.forEach(expense => {
+    const needsCategories = ["Housing", "Healthcare", "Food", "Insurance"];
+    const savingsCategories = ["Savings"];
+    if (needsCategories.includes(expense.category)) {
+      needs += expense.value;
+    } else if (savingsCategories.includes(expense.category)) {
+      savings += expense.value;
+    } else {
+      wants += expense.value;
+    }
+  });
+
+  income.forEach(element => {
+    totalIncome += element.valueIncome;
+  });
+
+  needs = Math.floor((needs * 100) / totalIncome);
+  wants = Math.floor((wants * 100) / totalIncome);
+  savings = Math.floor((savings * 100) / totalIncome);
+  
+  return { needs, wants, savings };
+};
+
 module.exports = function (app) {
   app.post("/api/signup", function (req, res) {
     User.create(req.body)
@@ -63,7 +92,11 @@ module.exports = function (app) {
       .populate("income")
       .then(function (dbUser) {
         console.log("Get one user", dbUser);
-        res.json(dbUser);
+        const categories = calculateChart(dbUser.expenses, dbUser.income);
+        res.json({
+          ...dbUser.toObject(),
+          categories
+        });
       })
       .catch(function (err) {
         res.status(500).json({ error: err.message });
