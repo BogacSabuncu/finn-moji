@@ -7,6 +7,7 @@ import {
   MDBCardTitle
 } from "mdbreact";
 import DonutChart from "./Donut.js";
+import { Consumer as UserConsumer } from "../context/UserContext";
 
 const DonutCard = () => {
   return (
@@ -16,6 +17,15 @@ const DonutCard = () => {
         <MDBCardBody style={{ marginLeft: "auto", marginRight: "auto" }}>
           <MDBCardTitle />
           <DonutChart />
+          {/* <UserConsumer>
+            {context => (
+              <div>
+                {context.userObj && context.userObj.expenses.reduce((sum, expense) => {
+                  return sum + expense.value;
+                }, 0)}
+              </div>
+            )}
+          </UserConsumer> */}
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>

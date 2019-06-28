@@ -31,7 +31,8 @@ class App extends Component {
   }
   state = {
     user: null,
-    userObj: null
+    userObj: null,
+    charStatus: "neutral"
   };
 
   setUser = user => {
@@ -40,12 +41,16 @@ class App extends Component {
 
   getUser = () => {
     API.getUser().then(response => {
-      this.refreshUser(response.data);
+      this.setUser(response.data);
     });
   };
 
-  refreshUser = userData => {
-    this.setState({ userObj: userData });
+  setUser = userData => {
+    this.setState({
+      userObj: userData,
+      user: userData, // CHEAT - FIX LATER
+      charStatus: this.getCharStatus(userData)
+    });
   };
 
   postExpense = data => {
@@ -104,6 +109,26 @@ class App extends Component {
       this.getUser();
     }
   }
+
+  getCharStatus = (user) => {
+    console.log(user);
+    const { wants } = user.categories;
+    let charStatus = this.state.charStatus;
+    if (wants < 30) {
+      charStatus = "happy";
+    } else if (wants < 35 && wants >= 30) {
+      charStatus = "neutral";
+    } else if (wants < 45 && wants >= 35) {
+      charStatus = "sad";
+    } else if (wants >= 45 && wants <85) {
+      charStatus = "very sad";
+    }else if(wants >= 85){
+      charStatus = "dead";
+    }
+    // console.log(wants);
+    // console.log(charStatus);
+    return charStatus;
+  };
 
   render() {
     const token = localStorage.getItem("token");
@@ -198,13 +223,15 @@ class App extends Component {
             value={{
               setUser,
               user,
+              charStatus: this.state.charStatus,
               userObj: this.state.userObj,
               postExpense: this.postExpense,
               postIncome: this.postIncome,
               deleteIncome: this.deleteIncome,
               updateIncome: this.updateIncome,
               deleteExpense: this.deleteExpense,
-              updateExpense: this.updateExpense
+              updateExpense: this.updateExpense,
+              getCharStatus: this.getCharStatus
             }}
           >
             <ProtectedRoute exact path='/profile' component={Profile} />

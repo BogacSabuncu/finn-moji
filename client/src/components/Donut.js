@@ -6,11 +6,12 @@ import { RadialChart, Hint } from "react-vis";
 export default class DonutChart extends Component {
   static contextType = UserContext;
   state = {
-    value: false
+    value: false,
   };
 
   calculate_theta = expenses => {
     let data = [];
+
     expenses.forEach(expense => {
       let expenseObj = {
         label: expense.name,
@@ -20,10 +21,13 @@ export default class DonutChart extends Component {
 
       data.push(expenseObj);
     });
+
     return data;
   };
 
   setValue = v => {
+    // console.log(v);
+
     let value = {
       Name: v.label,
       Category: v.subLabel,
@@ -67,6 +71,7 @@ export default class DonutChart extends Component {
                   textAlign: "center"
                 }}
               >
+                
                 <h4>{"$" + value.Amount}</h4>
                 <h5>{value.Name}</h5>
                 <h6>{value.Category}</h6>
