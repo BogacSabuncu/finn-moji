@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import UserContext from "../context/UserContext.js";
 import "../../node_modules/react-vis/dist/style.css";
 import { RadialChart, Hint } from "react-vis";
-import API from "../utils/API";
-import { set } from "mongoose";
 
 export default class DonutChart extends Component {
   static contextType = UserContext;
@@ -69,7 +67,7 @@ export default class DonutChart extends Component {
                   textAlign: "center"
                 }}
               >
-                <h4>{"$"+value.Amount}</h4>
+                <h4>{"$" + value.Amount}</h4>
                 <h5>{value.Name}</h5>
                 <h6>{value.Category}</h6>
               </div>

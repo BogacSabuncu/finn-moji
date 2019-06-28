@@ -1,16 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-// import Auth from "../utils/Auth";
-import API from "../utils/API";
-import Charts from "./Charts";
 import Logs from "./Logs";
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import CharacterCard from "./CharacterCard";
 import StatsCard from "./StatsCard";
 import DonutCard from "./DonutCard.js";
 import Typist from "react-typist";
-
 
 class Profile extends Component {
   static contextType = UserContext;
@@ -47,12 +42,10 @@ class Profile extends Component {
             <Logs />
           </MDBCol>
         </MDBRow>
-        <MDBRow>
-          
-        </MDBRow>
+        <MDBRow />
       </MDBContainer>
     );
   }
 }
 
-export default withRouter(Profile);
+export default Profile;
