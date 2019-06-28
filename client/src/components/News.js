@@ -92,6 +92,7 @@ class News extends Component {
   showState() {
     // shows us the state after the getArticle function has ran and the state has been set
     console.log("articlesArr", this.state.articlesArr);
+    //hi
   }
 
   render() {
