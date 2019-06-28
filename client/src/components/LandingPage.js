@@ -129,8 +129,8 @@ class LandingPage extends Component {
         </Row>
         <Row className='justify-content-md-center'>
           <Col>
-            <div className='text-center'>
-              {token ? (
+            {token ? null : (
+              <div className='text-center'>
                 <Fragment>
                   <MDBBtn
                     href='/login'
@@ -147,8 +147,8 @@ class LandingPage extends Component {
                     Sign Up
                   </MDBBtn>
                 </Fragment>
-              ) : null}
-            </div>
+              </div>
+            )}
           </Col>
         </Row>
       </Container>
