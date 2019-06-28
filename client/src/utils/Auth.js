@@ -1,8 +1,13 @@
 import axios from "axios";
 
 function Auth() {
-  console.log("Auth was ran");
-  let loggedIn = false;
+  let loggedIn;
+  if (!localStorage.getItem("token")) {
+    loggedIn = false;
+  } else {
+    loggedIn = true;
+  }
+  console.log("Auth was ran", loggedIn);
 
   function logIn(username, password, cb) {
     axios

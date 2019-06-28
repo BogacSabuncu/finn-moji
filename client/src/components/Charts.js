@@ -71,7 +71,6 @@ class Charts extends Component {
     return (
       <div className='App'>
         <XYPlot
-          as='div'
           margin={{ bottom: 70 }}
           xType='ordinal'
           height={300}
