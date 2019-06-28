@@ -47,8 +47,6 @@ class News extends Component {
   componentDidMount() {
     // retrieves articles from database
     // and sets state to articles that have been retrieved from DB
-    this.clearArticles();
-    this.scrapeArticles();
     this.getArticles();
    
   }
@@ -65,6 +63,17 @@ class News extends Component {
     axios.delete("/article/clear")
     .then(response => {
       console.log("cleared");
+      axios.get("/article/scrape")
+      .then(response =>{
+        console.log(response);
+        axios
+        .get("/article/all")
+        .then(articles =>
+          this.setState({ articlesArr: articles.data }, this.showState)
+        );
+      }).catch(err =>{
+        console.log(err);
+      })
     }).catch(err =>{
       console.log(err);
     })
@@ -83,6 +92,7 @@ class News extends Component {
   showState() {
     // shows us the state after the getArticle function has ran and the state has been set
     console.log("articlesArr", this.state.articlesArr);
+    //hi
   }
 
   render() {
