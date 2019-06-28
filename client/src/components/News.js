@@ -47,7 +47,10 @@ class News extends Component {
   componentDidMount() {
     // retrieves articles from database
     // and sets state to articles that have been retrieved from DB
+    this.clearArticles();
+    this.scrapeArticles();
     this.getArticles();
+   
   }
 
   getArticles() {
@@ -57,6 +60,25 @@ class News extends Component {
         this.setState({ articlesArr: articles.data }, this.showState)
       );
   }
+  
+  clearArticles(){
+    axios.delete("/article/clear")
+    .then(response => {
+      console.log("cleared");
+    }).catch(err =>{
+      console.log(err);
+    })
+    
+  }
+
+  scrapeArticles(){
+    axios.get("/article/scrape")
+    .then(response =>{
+      console.log(response);
+    }).catch(err =>{
+      console.log(err);
+    })
+  }
 
   showState() {
     // shows us the state after the getArticle function has ran and the state has been set
@@ -65,6 +87,7 @@ class News extends Component {
 
   render() {
     let articles = this.state.articlesArr;
+    //this.getArticles();
     return (
       <MDBContainer>
         <h1>News</h1>
