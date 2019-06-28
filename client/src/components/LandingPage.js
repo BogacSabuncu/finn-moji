@@ -105,7 +105,7 @@ class LandingPage extends Component {
                 src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/pouting-cat-face_1f63e.png'
               />
             </div>
-            <p>Finn is here to help keep your spending on track.</p>
+            <p>Finn is determined to help keep your spending on track.</p>
           </Col>
           <Col className='finnSteps text-center'>
             <div className='finnFaces'>
