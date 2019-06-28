@@ -10,7 +10,6 @@ import "react-typist/dist/Typist";
 
 class LandingPage extends Component {
   render() {
-    const token = localStorage.getItem("token");
     return (
       <Container className='overflow-auto' id='container'>
         <Row>
@@ -129,8 +128,8 @@ class LandingPage extends Component {
         </Row>
         <Row className='justify-content-md-center'>
           <Col>
-            <div className='text-center'>
-              {token ? (
+            {localStorage.getItem("token") ? null : (
+              <div className='text-center'>
                 <Fragment>
                   <MDBBtn
                     href='/login'
@@ -147,8 +146,8 @@ class LandingPage extends Component {
                     Sign Up
                   </MDBBtn>
                 </Fragment>
-              ) : null}
-            </div>
+              </div>
+            )}
           </Col>
         </Row>
       </Container>
