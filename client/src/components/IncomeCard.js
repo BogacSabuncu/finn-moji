@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
-
+import {
+  MDBBtnGroup,
+  MDBRow,
+  MDBContainer,
+  MDBCardHeader,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCol
+} from "mdbreact";
 class IncomeCard extends Component {
   render() {
     return (
@@ -10,6 +21,7 @@ class IncomeCard extends Component {
             Delete
       </span></Card.Header>
           <Card.Body>
+            
             <Card.Text><input type="text" value={props.valueIncome} name={props.valueIncome} id={props.id} style={{ width: '5rem' }} /> dollars</Card.Text>
 
           </Card.Body>

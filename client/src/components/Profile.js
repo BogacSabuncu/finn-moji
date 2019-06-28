@@ -14,7 +14,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <MDBContainer>
+      <MDBContainer md='12'>
         <MDBRow>
           <MDBCol className="text-center" md="12">
           <Typist
@@ -31,13 +31,22 @@ class Profile extends Component {
           </MDBCol>
         </MDBRow>
         <MDBRow>
-          <MDBCol>
+          <MDBCol md='6'>
             <CharacterCard />
           </MDBCol>
-          <MDBCol>
-            <StatsCard />
-            <DonutCard />
+          <MDBCol md='6'>
+          <DonutCard />
+            
           </MDBCol>
+        </MDBRow>
+
+        <MDBRow>
+        
+          <MDBCol md='12'>
+          <StatsCard />
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
           <MDBCol>
             <Logs />
           </MDBCol>
