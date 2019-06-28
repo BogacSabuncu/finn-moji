@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Auth from "./utils/Auth";
 import LoginPage from "./components/LoginPage";
 import { Provider as UserProvider } from "./context/UserContext";
 import SingupForm from "./components/SingupForm";
@@ -12,9 +13,8 @@ import {
   MDBNavbarNav,
   MDBNavItem,
   MDBNavLink,
-  // MDBNavbarToggler,
+  MDBBtn,
   MDBCollapse,
-  // MDBFormInline,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -26,6 +26,9 @@ import "./stylesheets/App.css";
 import API from "./utils/API";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     user: null,
     userObj: null
@@ -84,6 +87,18 @@ class App extends Component {
       this.getUser();
     });
   };
+
+  submitHandler = e => {
+    e.preventDefault();
+    if (localStorage.getItem("token")) {
+      Auth.logOut(response => {
+        this.setState({
+          user: null
+        });
+      });
+    }
+  };
+
   componentDidMount() {
     if (localStorage.getItem("token")) {
       this.getUser();
@@ -91,6 +106,7 @@ class App extends Component {
   }
 
   render() {
+    const token = localStorage.getItem("token");
     const { user } = this.state;
     const setUser = this.setUser;
     return (
@@ -163,7 +179,18 @@ class App extends Component {
                 </MDBNavItem>
               </MDBNavbarNav>
               <MDBNavbarNav right>
-                <MDBNavItem />
+                <MDBNavItem>
+                  <div className='text-center'>
+                    {token ? (
+                      <MDBBtn
+                        className='amy-crisp-gradient'
+                        onClick={this.submitHandler}
+                      >
+                        Logout
+                      </MDBBtn>
+                    ) : null}
+                  </div>
+                </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBNavbar>
