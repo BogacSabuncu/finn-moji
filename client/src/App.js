@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Auth from "./utils/Auth";
 import LoginPage from "./components/LoginPage";
 import { Provider as UserProvider } from "./context/UserContext";
 import SingupForm from "./components/SingupForm";
@@ -12,20 +13,22 @@ import {
   MDBNavbarNav,
   MDBNavItem,
   MDBNavLink,
-  // MDBNavbarToggler,
+  MDBBtn,
   MDBCollapse,
-  // MDBFormInline,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem
 } from "mdbreact";
-import Statistics from "./components/Statistics";
+import News from "./components/News";
 import FooterPage from "./components/Footer";
 import "./stylesheets/App.css";
 import API from "./utils/API";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     user: null,
     userObj: null,
@@ -89,6 +92,18 @@ class App extends Component {
       this.getUser();
     });
   };
+
+  submitHandler = e => {
+    e.preventDefault();
+    if (localStorage.getItem("token")) {
+      Auth.logOut(response => {
+        this.setState({
+          user: null
+        });
+      });
+    }
+  };
+
   componentDidMount() {
     if (localStorage.getItem("token")) {
       this.getUser();
@@ -116,6 +131,7 @@ class App extends Component {
   };
 
   render() {
+    const token = localStorage.getItem("token");
     const { user } = this.state;
     const setUser = this.setUser;
     return (
@@ -143,7 +159,7 @@ class App extends Component {
                   <MDBNavLink to='/profile'>Profile</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBNavLink to='/statistics'>Statistics</MDBNavLink>
+                  <MDBNavLink to='/news'>News</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                   <MDBDropdown>
@@ -188,7 +204,18 @@ class App extends Component {
                 </MDBNavItem>
               </MDBNavbarNav>
               <MDBNavbarNav right>
-                <MDBNavItem />
+                <MDBNavItem>
+                  <div className='text-center'>
+                    {token ? (
+                      <MDBBtn
+                        className='amy-crisp-gradient'
+                        onClick={this.submitHandler}
+                      >
+                        Logout
+                      </MDBBtn>
+                    ) : null}
+                  </div>
+                </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBNavbar>
@@ -212,7 +239,7 @@ class App extends Component {
             <Route exact path='/login' component={LoginPage} />
             <Route exact path='/signup' component={SingupForm} />
             <Route exact path='/' component={LandingPage} />
-            <Route exact path='/statistics' component={Statistics} />
+            <Route exact path='/news' component={News} />
           </UserProvider>
           <div className='push' />
           {/* </div> */}

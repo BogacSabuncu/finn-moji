@@ -10,6 +10,7 @@ import "react-typist/dist/Typist";
 
 class LandingPage extends Component {
   render() {
+    const token = localStorage.getItem("token");
     return (
       <Container className='overflow-auto' id='container'>
         <Row>
@@ -105,7 +106,7 @@ class LandingPage extends Component {
                 src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/pouting-cat-face_1f63e.png'
               />
             </div>
-            <p>Finn is here to help keep your spending on track.</p>
+            <p>Finn is determined to help keep your spending on track.</p>
           </Col>
           <Col className='finnSteps text-center'>
             <div className='finnFaces'>
@@ -128,24 +129,26 @@ class LandingPage extends Component {
         </Row>
         <Row className='justify-content-md-center'>
           <Col>
-            <div className='text-center'>
-              <Fragment>
-                <MDBBtn
-                  href='/login'
-                  size='lg'
-                  className='sunny-morning-gradient'
-                >
-                  Log In
-                </MDBBtn>
-                <MDBBtn
-                  href='/signup'
-                  size='lg'
-                  className='sunny-morning-gradient'
-                >
-                  Sign Up
-                </MDBBtn>
-              </Fragment>
-            </div>
+            {token ? null : (
+              <div className='text-center'>
+                <Fragment>
+                  <MDBBtn
+                    href='/login'
+                    size='lg'
+                    className='sunny-morning-gradient'
+                  >
+                    Log In
+                  </MDBBtn>
+                  <MDBBtn
+                    href='/signup'
+                    size='lg'
+                    className='sunny-morning-gradient'
+                  >
+                    Sign Up
+                  </MDBBtn>
+                </Fragment>
+              </div>
+            )}
           </Col>
         </Row>
       </Container>
