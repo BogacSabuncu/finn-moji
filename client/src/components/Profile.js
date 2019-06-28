@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-// import Auth from "../utils/Auth";
-import API from "../utils/API";
-import Charts from "./Charts";
 import Logs from "./Logs";
-import AddExpense from "./AddExpense";
-import AddIncome from "./AddIncome";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import CharacterCard from "./CharacterCard";
 import StatsCard from "./StatsCard";
 import DonutCard from "./DonutCard.js";
@@ -21,8 +15,8 @@ class Profile extends Component {
     return (
       <MDBContainer md='12'>
         <MDBRow>
-          <MDBCol className="text-center" md="12">
-            <h1 id="">Chief called, this profile is it.</h1>
+          <MDBCol className='text-center' md='12'>
+            <h1 id=''>Chief called, this profile is it.</h1>
           </MDBCol>
         </MDBRow>
         <MDBRow>
@@ -52,4 +46,4 @@ class Profile extends Component {
   }
 }
 
-export default withRouter(Profile);
+export default Profile;

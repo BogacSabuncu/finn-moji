@@ -303,4 +303,4 @@ class Logs extends Component {
   }
 }
 
-export default withRouter(Logs);
+export default Logs;
