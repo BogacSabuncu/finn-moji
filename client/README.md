@@ -1,4 +1,4 @@
-# finmoji
+# Finmoji :smiley_cat:
 
 With Finmoji, taking responsibility for your personal finances has never been more fun or hassle-free. Finmoji can assist you in allocating your income to a budget within your means.
 

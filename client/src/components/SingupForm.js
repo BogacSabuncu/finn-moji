@@ -4,6 +4,7 @@ import UserContext from "../context/UserContext";
 import API from "../utils/API";
 import { Container, Row, Col } from "react-bootstrap";
 import { MDBInput, MDBBtn } from "mdbreact";
+import Typist from "react-typist";
 
 class SignupForm extends Component {
   static contextType = UserContext;
@@ -19,7 +20,7 @@ class SignupForm extends Component {
 
   redirectToTarget = () => {
     this.props.history.push("/profile");
-  }
+  };
 
   changeHandler = e => {
     const { name, value } = e.target;
@@ -41,6 +42,28 @@ class SignupForm extends Component {
   render() {
     return (
       <Container>
+        <div className="text-center">
+          <img
+            className="img-fluid"
+            alt="login icon"
+            src="https://images.vexels.com/media/users/3/143349/isolated/preview/d4a9daa55995698be51b9abc7029bd3d-color-maneki-neko-cat-by-vexels.png"
+          />
+        </div>
+
+        <div id="getStartedTypist">
+          <Typist
+            cursor={{
+              show: false,
+              blink: true,
+              element: "|",
+              hideWhenDone: false,
+              hideWhenDoneDelay: 1000
+            }}
+          >
+            <h3 id="welcomeText">Get started today!</h3>
+          </Typist>
+        </div>
+
         <form className="needs-validation" onSubmit={this.submitHandler}>
           <Row>
             <Col>
@@ -132,8 +155,7 @@ class SignupForm extends Component {
                   <MDBBtn
                     href="/profile"
                     size="lg"
-                    gradient="blue"
-                    // type="submit"
+                    className="sunny-morning-gradient"
                     onClick={this.submitHandler}
                   >
                     Create Your Account!

@@ -1,17 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import UserContext from "../context/UserContext";
-// import Auth from "../utils/Auth";
-import API from "../utils/API";
-import Charts from "./Charts";
 import Logs from "./Logs";
-import AddExpense from "./AddExpense";
-import AddIncome from "./AddIncome";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import CharacterCard from "./CharacterCard";
 import StatsCard from "./StatsCard";
 import DonutCard from "./DonutCard.js";
-
+import Typist from "react-typist";
 
 class Profile extends Component {
   static contextType = UserContext;
@@ -20,30 +14,47 @@ class Profile extends Component {
 
   render() {
     return (
-      <MDBContainer>
+      <MDBContainer md='12'>
         <MDBRow>
           <MDBCol className="text-center" md="12">
-            <h1 id="">Chief called, this profile is it.</h1>
+          <Typist
+                cursor={{
+                  show: false,
+                  blink: true,
+                  element: "|",
+                  hideWhenDone: false,
+                  hideWhenDoneDelay: 1000
+                }}
+              >
+            <h1>Chief called, this profile is it.</h1>
+            </Typist>
           </MDBCol>
         </MDBRow>
         <MDBRow>
-          <MDBCol>
+          <MDBCol md='6'>
             <CharacterCard />
           </MDBCol>
-          <MDBCol>
-            <StatsCard />
-            <DonutCard />
+          <MDBCol md='6'>
+          <DonutCard />
+            
           </MDBCol>
+        </MDBRow>
+
+        <MDBRow>
+        
+          <MDBCol md='12'>
+          <StatsCard />
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
           <MDBCol>
             <Logs />
           </MDBCol>
         </MDBRow>
-        <MDBRow>
-          
-        </MDBRow>
+        <MDBRow />
       </MDBContainer>
     );
   }
 }
 
-export default withRouter(Profile);
+export default Profile;

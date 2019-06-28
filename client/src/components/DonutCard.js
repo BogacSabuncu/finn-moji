@@ -4,21 +4,28 @@ import {
   MDBCardHeader,
   MDBCard,
   MDBCardBody,
-  MDBCardTitle,
-  MDBCardText
+  MDBCardTitle
 } from "mdbreact";
 import DonutChart from "./Donut.js";
+import { Consumer as UserConsumer } from "../context/UserContext";
 
 const DonutCard = () => {
   return (
     <MDBContainer>
       <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
-        <MDBCardHeader color="blue darken-3">Your Expenses:</MDBCardHeader>
+        <MDBCardHeader color='blue darken-3'>Your Expenses:</MDBCardHeader>
         <MDBCardBody style={{ marginLeft: "auto", marginRight: "auto" }}>
           <MDBCardTitle />
-          <MDBCardText>
-            <DonutChart />
-          </MDBCardText>
+          <DonutChart />
+          {/* <UserConsumer>
+            {context => (
+              <div>
+                {context.userObj && context.userObj.expenses.reduce((sum, expense) => {
+                  return sum + expense.value;
+                }, 0)}
+              </div>
+            )}
+          </UserConsumer> */}
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>
