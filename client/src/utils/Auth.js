@@ -1,4 +1,5 @@
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 function Auth() {
   let loggedIn;
@@ -24,7 +25,7 @@ function Auth() {
   }
 
   function logOut(cb) {
-    localStorage.removeItem("token");
+    localStorage.clear();
     loggedIn = false;
     cb();
   }
@@ -45,4 +46,4 @@ function Auth() {
   };
 }
 
-export default Auth();
+export default withRouter(Auth());
