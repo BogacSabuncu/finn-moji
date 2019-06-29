@@ -7,7 +7,6 @@ import {
   MDBCardTitle
 } from "mdbreact";
 import DonutChart from "./Donut.js";
-import { Consumer as UserConsumer } from "../context/UserContext";
 
 const DonutCard = () => {
   return (
