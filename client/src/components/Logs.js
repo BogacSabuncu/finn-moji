@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import API from "../utils/API";
-import CardDeck from "react-bootstrap/CardDeck";
 import UserContext from "../context/UserContext.js";
-import Card from "react-bootstrap/Card";
 import {
-  MDBBtnGroup,
   MDBRow,
   MDBContainer,
   MDBCardHeader,
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
   MDBCol
 } from "mdbreact";
 
@@ -30,8 +22,13 @@ class IncomeCard extends Component {
   render() {
     return (
       <>
-        <MDBCard text="white" color="success-color" border="success" style={{ width: "auto", margin: "20px" }}>
-        <MDBCardHeader>
+        <MDBCard
+          text='white'
+          color='success-color'
+          border='success'
+          style={{ width: "auto", margin: "20px" }}
+        >
+          <MDBCardHeader>
             {this.props.nameIncome}
 
             <span
@@ -39,12 +36,12 @@ class IncomeCard extends Component {
               onClick={() => this.props.removeIncome(this.props.id)}
             >
               <span role='img' aria-label='icon'>
-              <i class="fas fa-trash-alt"></i>
+                <i className='fas fa-trash-alt' />
               </span>
             </span>
           </MDBCardHeader>
           <MDBCardBody className='text-center'>
-          <span
+            <span
               style={{ float: "", cursor: "pointer", padding: "10px" }}
               onClick={() =>
                 this.props.updateIncome(
@@ -54,7 +51,7 @@ class IncomeCard extends Component {
                 )
               }
             >
-            <i class="fas fa-sync-alt"></i>
+              <i className='fas fa-sync-alt' />
             </span>
             <input
               type='text'
@@ -86,21 +83,26 @@ class ExpensesCard extends Component {
   render() {
     return (
       <>
-        <MDBCard text="white" color="red lighten-1" border="danger" style={{ width: "auto", margin: "20px" }}>
-          <MDBCardHeader color="red lighten-1">
+        <MDBCard
+          text='white'
+          color='red lighten-1'
+          border='danger'
+          style={{ width: "auto", margin: "20px" }}
+        >
+          <MDBCardHeader color='red lighten-1'>
             {this.props.name}
 
             <span
               style={{ float: "right", cursor: "pointer" }}
               onClick={() => this.props.removeExpenses(this.props.id)}
             >
-              <span role="img" aria-label="icon">
-              <i class="fas fa-trash-alt"></i>
+              <span role='img' aria-label='icon'>
+                <i className='fas fa-trash-alt' />
               </span>
             </span>
           </MDBCardHeader>
 
-          <MDBCardBody className="text-center">
+          <MDBCardBody className='text-center'>
             <span
               style={{ float: "", cursor: "pointer", padding: "10px" }}
               onClick={() =>
@@ -111,10 +113,10 @@ class ExpensesCard extends Component {
                 )
               }
             >
-              <i class="fas fa-sync-alt"></i>
+              <i className='fas fa-sync-alt' />
             </span>
             <input
-              type="text"
+              type='text'
               value={this.state.value}
               onChange={this.handleChange2}
               name={this.props.value}
@@ -219,56 +221,55 @@ class Logs extends Component {
     };
     return (
       <>
-      <MDBRow>
-        <MDBCol md='6'>
-        <MDBContainer>
-          
-          <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
-            <MDBCardHeader color="success-color">Income Log:</MDBCardHeader>
-            <MDBCardBody>
-            {/* <CardDeck> */}
-              {income.map(incomeItem => (
-                <IncomeCard
-                  changeHandler={this.changeHandler}
-                  removeIncome={this.removeIncome}
-                  nameIncome={incomeItem.nameIncome}
-                  valueIncome={incomeItem.valueIncome}
-                  updateIncome={this.updateIncome}
-                  id={incomeItem._id}
-                  key={incomeItem._id}
-                />
-              ))}{" "}
-              {/* </CardDeck> */}
-            </MDBCardBody>
-          </MDBCard>
-        </MDBContainer>
+        <MDBRow>
+          <MDBCol md='6'>
+            <MDBContainer>
+              <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
+                <MDBCardHeader color='success-color'>Income Log:</MDBCardHeader>
+                <MDBCardBody>
+                  {/* <CardDeck> */}
+                  {income.map(incomeItem => (
+                    <IncomeCard
+                      changeHandler={this.changeHandler}
+                      removeIncome={this.removeIncome}
+                      nameIncome={incomeItem.nameIncome}
+                      valueIncome={incomeItem.valueIncome}
+                      updateIncome={this.updateIncome}
+                      id={incomeItem._id}
+                      key={incomeItem._id}
+                    />
+                  ))}{" "}
+                  {/* </CardDeck> */}
+                </MDBCardBody>
+              </MDBCard>
+            </MDBContainer>
           </MDBCol>
           <MDBCol md='6'>
-        <MDBContainer  className=''>
-          <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
-            <MDBCardHeader color="red lighten-1">
-              Expense Log:
-            </MDBCardHeader>
-            <MDBCardBody>
-            {/* <CardDeck> */}
-              {expenses.map(expensesItem => (
-                <ExpensesCard
-                  id={expensesItem._id}
-                  updateExpenses={this.updateExpenses}
-                  name={expensesItem.name}
-                  value={expensesItem.value}
-                  removeExpenses={this.removeExpenses}
-                  category={expensesItem.category}
-                  key={expensesItem._id}
-                />
-              ))}
-              {/* </CardDeck> */}
-            </MDBCardBody>
-          </MDBCard>
-        </MDBContainer>
-        </MDBCol>
+            <MDBContainer className=''>
+              <MDBCard style={{ width: "auto", marginTop: "1rem" }}>
+                <MDBCardHeader color='red lighten-1'>
+                  Expense Log:
+                </MDBCardHeader>
+                <MDBCardBody>
+                  {/* <CardDeck> */}
+                  {expenses.map(expensesItem => (
+                    <ExpensesCard
+                      id={expensesItem._id}
+                      updateExpenses={this.updateExpenses}
+                      name={expensesItem.name}
+                      value={expensesItem.value}
+                      removeExpenses={this.removeExpenses}
+                      category={expensesItem.category}
+                      key={expensesItem._id}
+                    />
+                  ))}
+                  {/* </CardDeck> */}
+                </MDBCardBody>
+              </MDBCard>
+            </MDBContainer>
+          </MDBCol>
         </MDBRow>
-{/* 
+        {/* 
         <h1>Income</h1>
         <CardDeck>
           {income.map(incomeItem => (

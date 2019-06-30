@@ -26,9 +26,6 @@ import "./stylesheets/App.css";
 import API from "./utils/API";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     user: null,
     userObj: null,
@@ -46,6 +43,7 @@ class App extends Component {
   };
 
   setUser = userData => {
+    console.log("inside setUser", userData);
     this.setState({
       userObj: userData,
       user: userData, // CHEAT - FIX LATER
@@ -110,7 +108,7 @@ class App extends Component {
     }
   }
 
-  getCharStatus = (user) => {
+  getCharStatus = user => {
     console.log(user);
     const { wants } = user.categories;
     let charStatus = this.state.charStatus;
@@ -120,9 +118,9 @@ class App extends Component {
       charStatus = "neutral";
     } else if (wants < 45 && wants >= 35) {
       charStatus = "sad";
-    } else if (wants >= 45 && wants <85) {
+    } else if (wants >= 45 && wants < 85) {
       charStatus = "very sad";
-    }else if(wants >= 85){
+    } else if (wants >= 85) {
       charStatus = "dead";
     }
     // console.log(wants);

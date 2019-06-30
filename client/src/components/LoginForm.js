@@ -26,11 +26,12 @@ class LoginForm extends Component {
   submitHandler = e => {
     e.preventDefault();
     const { username, password } = this.state;
+    console.log("click is working", username, password);
     if (username && password) {
       Auth.logIn(username, password, response => {
-        localStorage.setItem("userId", response.id);
-        this.context.setUser(response);
         this.props.history.push("/profile");
+        this.context.setUser(response);
+        console.log("login", this.props.history);
       });
     }
     this.redirectToTarget();
@@ -49,7 +50,7 @@ class LoginForm extends Component {
                 src='https://images.vexels.com/media/users/3/143349/isolated/preview/d4a9daa55995698be51b9abc7029bd3d-color-maneki-neko-cat-by-vexels.png'
               />
             </div>
-            <div id="welcomeTypist">
+            <div id='welcomeTypist'>
               <Typist
                 cursor={{
                   show: false,
@@ -59,7 +60,7 @@ class LoginForm extends Component {
                   hideWhenDoneDelay: 1000
                 }}
               >
-                <h3 id="welcomeText">Welcome back!</h3>
+                <h3 id='welcomeText'>Welcome back!</h3>
               </Typist>
             </div>
             <hr />

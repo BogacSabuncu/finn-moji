@@ -13,20 +13,21 @@ class Profile extends Component {
   state = {};
 
   render() {
+    // const userName = this.context.userObj.username;
     return (
       <MDBContainer md='12'>
         <MDBRow>
-          <MDBCol className="text-center" md="12">
-          <Typist
-                cursor={{
-                  show: false,
-                  blink: true,
-                  element: "|",
-                  hideWhenDone: false,
-                  hideWhenDoneDelay: 1000
-                }}
-              >
-            <h1>Chief called, this profile is it.</h1>
+          <MDBCol className='text-center' md='12'>
+            <Typist
+              cursor={{
+                show: false,
+                blink: true,
+                element: "|",
+                hideWhenDone: false,
+                hideWhenDoneDelay: 1000
+              }}
+            >
+              <h1>Chief called, this profile is it.</h1>
             </Typist>
           </MDBCol>
         </MDBRow>
@@ -35,15 +36,13 @@ class Profile extends Component {
             <CharacterCard />
           </MDBCol>
           <MDBCol md='6'>
-          <DonutCard />
-            
+            <DonutCard />
           </MDBCol>
         </MDBRow>
 
         <MDBRow>
-        
           <MDBCol md='12'>
-          <StatsCard />
+            <StatsCard />
           </MDBCol>
         </MDBRow>
         <MDBRow>

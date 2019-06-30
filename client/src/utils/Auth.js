@@ -15,6 +15,7 @@ function Auth() {
       .post("/api/authenticate", { username, password })
       .then(response => {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userId", response.data.id);
         loggedIn = true;
         console.log("loggedin", loggedIn);
         cb(response.data);
