@@ -18,36 +18,54 @@ class Charts extends Component {
       { x: "Wants", y: 30 },
       { x: "Savings", y: 20 }
     ];
-    
-    const { needs = 0, wants = 0, savings = 0 } = this.context.user ? this.context.user.categories : {};
+
+    const { needs = 0, wants = 0, savings = 0 } = this.context.user
+      ? this.context.user.categories
+      : {};
     const userGraphData = [
       { x: "Needs", y: `${needs}` },
       { x: "Wants", y: `${wants}` },
       { x: "Savings", y: `${savings}` }
     ];
 
-    return (      
-      <div className="App">
-        <XYPlot margin={{ bottom: 70 }} xType="ordinal" height={300} width={800} yDomain={[0, 100]}>
+    return (
+      <div className='App'>
+        <XYPlot
+          margin={{ bottom: 70 }}
+          xType='ordinal'
+          height={300}
+          width={800}
+          yDomain={[0, 100]}
+        >
           <DiscreteColorLegend
             style={{ position: "absolute", left: "300px", top: "10px" }}
             orientation='vertical'
             items={[
               {
                 title: "GA Average",
-                color: "red"
+                colorType: "literal",
+                color: "#ff7043"
               },
               {
                 title: "You",
-                color: "purple"
+                colorType: "literal",
+                color: "#ab47bc"
               }
             ]}
           />
 
           <XAxis tickLabelAngle={-45} />
           <YAxis />
-          <VerticalBarSeries data={gaData} color='red' />
-          <VerticalBarSeries data={userGraphData} color='purple' />
+          <VerticalBarSeries
+            data={gaData}
+            colorType='literal'
+            color='#ff7043'
+          />
+          <VerticalBarSeries
+            data={userGraphData}
+            colorType='literal'
+            color='#ab47bc'
+          />
         </XYPlot>
       </div>
     );

@@ -45,7 +45,7 @@ class AddIncome extends Component {
   render() {
     return (
       <MDBContainer>
-        <MDBBtn color='green darken-2' onClick={this.toggle(14)}>
+        <MDBBtn color='success' onClick={this.toggle(14)}>
           Income
         </MDBBtn>
         <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
