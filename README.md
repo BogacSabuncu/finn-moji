@@ -1,6 +1,6 @@
-# Finmoji :smiley_cat:
+# Finn-Moji :smiley_cat:
 
-With Finmoji, taking responsibility for your personal finances has never been more fun or hassle-free. Finmoji can assist you in allocating your income to a budget within your means.
+With Finn-Moji, taking responsibility for your personal finances has never been more fun or hassle-free. Finn-Moji can assist you in allocating your income to a budget within your means.
 
 ### Overview
 
@@ -8,15 +8,15 @@ With Finmoji, taking responsibility for your personal finances has never been mo
 
 Money is oftentimes an uncomfortable subject. Our goal is to make financial responsibility simple, approachable, and interactive.
 
-Backed by market research, Finmoji provides the user with a recommendation of what percentage of their income should be used for fixed costs (rent, food, bills, etc.) and disposable expenses (dining out, entertainment, etc.). 
+Backed by market research, Finn-Moji provides the user with a recommendation of what percentage of their income should be used for fixed costs (rent, food, bills, etc.) and disposable expenses (dining out, entertainment, etc.). 
 
-Your budget is represented by our sprite, Finn. The better you take care of your budget, the happier Finn is. But if you go over your budget, Finn will die.
+Your budget is represented by our sprite, Finn. The better you take care of your budget, the happier Finn is. But if you go over your budget, Finn will be sad.
 
 ### Technologies Used
 
 - React
 - MDBReact
-- React-Bootstrap
+- React-Vis
 - React-Typist
 - MongoDB/Mongoose
 
