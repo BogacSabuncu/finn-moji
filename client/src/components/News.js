@@ -47,7 +47,7 @@ class News extends Component {
   componentDidMount() {
     // retrieves articles from database
     // and sets state to articles that have been retrieved from DB
-    this.getArticles();
+    this.clearArticles();
    
   }
 
@@ -66,8 +66,7 @@ class News extends Component {
       axios.get("/article/scrape")
       .then(response =>{
         console.log(response);
-        axios
-        .get("/article/all")
+        axios.get("/article/all")
         .then(articles =>
           this.setState({ articlesArr: articles.data }, this.showState)
         );
