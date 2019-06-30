@@ -145,7 +145,7 @@ class App extends Component {
                 className='d-inline-block align-top'
               />
 
-              <strong className='white-text'> &nbsp; FinMoji</strong>
+              <strong className='white-text'> &nbsp; Finn-Moji</strong>
             </MDBNavbarBrand>
             {/* <MDBNavbarToggler onClick={this.toggleCollapse} /> */}
             <MDBCollapse id='navbarCollapse3' isOpen={this.state.isOpen} navbar>

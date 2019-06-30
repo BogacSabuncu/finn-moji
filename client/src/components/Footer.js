@@ -15,7 +15,7 @@ const FooterPage = () => {
         <MDBRow>    
           <MDBCol>
             <h5 id="FooterTitle" className="title">
-              Finmoji - Finance, simplified. <span role="img" aria-label="finmoji-icon">&#128176;</span>
+              Finn-Moji - Finance, simplified. <span role="img" aria-label="finmoji-icon">&#128176;</span>
             </h5>
             <p>
               Securing the bag is hard enough. We're here to make sure you hold

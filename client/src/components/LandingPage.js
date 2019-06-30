@@ -15,12 +15,12 @@ class LandingPage extends Component {
       <Container className='overflow-auto' id='container'>
         <Row>
           <Col xs={4}>
-            <div id='finmoji-img' className='text-center'>
+            <div id='finn-moji-img' className='text-center'>
               <img
                 fluid='true'
                 id='finn'
                 src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/smiling-cat-face-with-heart-shaped-eyes_1f63b.png'
-                alt='finn finmoji img'
+                alt='finn finn-moji img'
               />
             </div>
           </Col>
@@ -55,8 +55,8 @@ class LandingPage extends Component {
               <i className='fas fa-search-dollar fa-3x' />
             </div>
             <p>
-              With Finmoji, taking responsibility for your personal finances has
-              never been more fun or hassle-free. Finmoji can assist you in
+              With Finn-Moji, taking responsibility for your personal finances has
+              never been more fun or hassle-free. Finn-Moji can assist you in
               allocating your income to a budget within your means.
             </p>
           </Col>
@@ -68,7 +68,7 @@ class LandingPage extends Component {
               <i className='fas fa-hand-holding-usd fa-3x' />
             </div>
             <p>
-              Finmoji provides the user with a recommendation of what percentage
+              Finn-Moji provides the user with a recommendation of what percentage
               of their income should be used for fixed costs (rent, food, bills,
               etc.) and disposable expenses (dining out, entertainment, etc.).
             </p>
@@ -124,7 +124,7 @@ class LandingPage extends Component {
                 src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/158/kissing-cat-face-with-closed-eyes_1f63d.png'
               />
             </div>
-            <p>But if you stay under budget, Finn stays alive. </p>
+            <p>But if you stay under budget, Finn stays happy. </p>
           </Col>
         </Row>
         <Row className='justify-content-md-center'>
