@@ -28,6 +28,7 @@ Your budget is represented by our sprite, Finn. The better you take care of your
 ### Links
 
 - [Github](https://github.com/BogacSabuncu/final-project)
+- [Application](https://finn-moji.herokuapp.com)
 
 ### Meet the Team
 
