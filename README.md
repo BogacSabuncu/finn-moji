@@ -2,6 +2,8 @@
 
 With Finmoji, taking responsibility for your personal finances has never been more fun or hassle-free. Finmoji can assist you in allocating your income to a budget within your means.
 
+![Image of Finn-Moji](./images/home-screen.png)
+
 ### Overview
 
 "Nearly 7 in 10 Americans have only $1,000 or less in their savings accounts. Out of 7,000 people around the country, 34% of them have nothing at all set aside in savings." [Forbes](https://www.forbes.com/sites/niallmccarthy/2016/09/23/survey-69-of-americans-have-less-than-1000-in-savings-infographic/#110147ed1ae6)
@@ -19,6 +21,8 @@ Your budget is represented by our sprite, Finn. The better you take care of your
 - React-Bootstrap
 - React-Typist
 - MongoDB/Mongoose
+
+![Image of porofile-page](./images/profile-page.png)
 
 ### Future Improvements
 
